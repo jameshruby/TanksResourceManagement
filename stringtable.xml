@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><Project name="Arma3">
+  <Package name="TanksResourceManagement">
+    <Container name="DisplayNames">
+      <Key ID="STR_TM_ModulesCategory">
+        <Original>Tanks Resource Management</Original>
+      </Key>      
+      <Key ID="STR_TM_KumaDisplayName">
+        <Original>MBT-52 Kuma (LowResources)</Original>
+      </Key>
+      <Key ID="STR_TM_RepairDepotDisplayName">
+        <Original>Repair Depot (Civilian - No function)</Original>
+      </Key>
+       <Key ID="STR_TM_ResourceAmmunition">
+        <Original>Resource Ammunition</Original>
+      </Key>
+      <Key ID="STR_TM_ResourceFuel">
+        <Original>Resource Fuel</Original>
+      </Key>
+      <Key ID="STR_TM_ResourceRepair">
+        <Original>Resource Repair</Original>
+      </Key>
+      <Key ID="STR_TM_VehicledResourceSystemsInit">
+        <Original>Vehicled Resource Systems Init</Original>
+      </Key>
+      <Key ID="STR_TM_AmmoContainerDisplayName">
+        <Original>Huron Ammo Container (No function)/Original>
+      </Key>
+    </Container>
+  </Package>
+</Project>

@@ -1,0 +1,7 @@
+#include "cfgPatches.hpp"
+#include "cfgFunctions.hpp"
+#include "cfgMagazines.hpp"
+#include "cfgWeapons.hpp"
+#include "cfgVehicles.hpp"
+#include "cfgMarkers.hpp"
+#include "cfgMods.hpp"
