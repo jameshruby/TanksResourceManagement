@@ -3,16 +3,22 @@ class ModuleResourceRepair : ResourceModulesArea
     icon = "A3\Ui_f\data\IGUI\Cfg\simpleTasks\types\repair_ca.paa"; 
 	scope = 2;
 	displayName = $STR_TM_ResourceRepair;
-	function = "TM_fnc_moduleResourceRepair";	
+	functionSpecific = "TM_fnc_resourceRepair";	
 	
-	
-	class Attributes : AttributesBase
+	class Attributes: Attributes
 	{
-		class ModuleDescription: ModuleDescription{};
-	};
-
-	class ModuleDescription: ModuleDescription
-	{
-		description =  $STR_TM_ResourceRepair;//TODO desc.
+		class Description : Description 
+		{
+			description = $STR_TM_ResourceRepair;
+		};
+		class BuildingClass : BuildingClass
+		{
+			defaultValue = """Land_RepairDepot_01_civ_F""";
+		};		
+		class BuildingMarker : BuildingMarker
+		{
+			defaultValue = """loc_RepairStation""";
+		};		
 	};
 };
+

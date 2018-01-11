@@ -1,4 +1,4 @@
-params["_pos", "_radius", "_direction"];
+params["_pos", "_radius"];
 
 private _trigger =	 createTrigger ["EmptyDetector", _pos];
 //_trigger setTriggerText _triggerName;

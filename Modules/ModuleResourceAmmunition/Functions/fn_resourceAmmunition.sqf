@@ -1,10 +1,4 @@
-params["_pos", "_radius", "_direction"]; 
-private _fuel = createVehicle ["B_Slingload_01_Ammo_F_NoFunction", [_pos select 0, _pos select 1, _pos select 2], [], 0, "CAN_COLLIDE"];
-_fuel setVectorUp [0, 0, 1];
-_fuel setDir (_direction - 90);	
-_fuel allowDamage false;
-
-[_fuel, "loc_RearmStation"] call TM_fnc_addMarkerBoundAreaIcon;
+params["_pos", "_radius"]; 
 
 private _trigger =	 createTrigger ["EmptyDetector", _pos];
 //_trigger setTriggerText _triggerName;

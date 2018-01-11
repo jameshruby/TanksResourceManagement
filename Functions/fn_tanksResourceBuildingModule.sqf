@@ -2,9 +2,9 @@ private _mode = param [0,"",[""]];
 private _input = param [1,[],[[]]];
 _module = _input param [0,objNull,[objNull]];
 
-private _buildingClass = "Land_fs_roof_F";
-private _buildingMarker = "loc_Fuelstation";
-private _functionToExecute =  compile "TM_fnc_resourceRefuel";
+private _buildingMarker = _module getVariable "#BuildingMarker";
+private _buildingClass = _module getVariable "#BuildingClass";
+
 private _pos = getPos _module;	
 private _direction = direction _module;
 	
@@ -18,9 +18,12 @@ switch _mode do {
 		private _building = [_module, _buildingClass, _buildingMarker] call TM_fnc_moduleCreateBuilding;	
 		_building setPos _pos;	
 		private _area = _module getVariable "objectArea";	
+		
 		if (_isActivated) then {	
+			["FAF init AF %1",typeName _module ] call bis_fnc_logFormat;
 			private _radius = (_area select 0) max (_area select 1);
-			[_pos, _radius , _direction] call call _functionToExecute;
+			private _functionNameToExecute =  getText(configFile >> "CfgVehicles" >> typeof _module >> "functionSpecific");;
+			[_pos, _radius] call (missionNamespace getVariable [_functionNameToExecute,{}]);
 		};
 	};
 	case "attributesChanged3DEN": {// When some attributes were changed (including position and rotation)
@@ -56,3 +59,6 @@ switch _mode do {
 	};
 };
 true
+
+
+

@@ -5,14 +5,13 @@ class ModuleVehicleResourcesInit : ResourceModules
 	displayName = $STR_TM_VehicledResourceSystemsInit;
 	function = "TM_fnc_moduleVehicleResourcesInit";	
 
-	// class Attributes : AttributesBase
-	// {
-	
-	// 	class ModuleDescription: ModuleDescription{};
-	// };
-
-	class ModuleDescription: ModuleDescription
+	class Attributes : AttributesBase
 	{
-		description = $STR_TM_VehicledResourceSystemsInit;//TODO desc.
+		class Description
+		{
+			data = "AttributeSystemSubcategory";
+			control = "SubCategoryNoHeader2";
+			description = $STR_TM_VehicledResourceSystemsInit;
+		};
 	};
 };

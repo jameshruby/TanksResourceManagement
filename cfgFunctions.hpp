@@ -12,6 +12,7 @@ class CfgFunctions
 			class createMapEditorBuilding;
 
 			class moduleCreateBuilding;
+			class tanksResourceBuildingModule;
 		};
 
 		class ResourceRepairFunctions
@@ -37,9 +38,6 @@ class CfgFunctions
 
 		class Modules {
 			class moduleVehicleResourcesInit {file = "A3\TanksResourceManagement\Modules\ModuleVehicleResourcesInit\fn_moduleVehicleResourcesInit.sqf"; };
-			class moduleResourceAmmunition {file = "A3\TanksResourceManagement\Modules\ModuleResourceAmmunition\fn_moduleResourceAmmunition.sqf"; };
-			class moduleResourceFuel {file = "A3\TanksResourceManagement\Modules\ModuleResourceFuel\fn_moduleResourceFuel.sqf"; };
-			class moduleResourceRepair {file = "A3\TanksResourceManagement\Modules\ModuleResourceRepair\fn_moduleResourceRepair.sqf"; };
 		};
 	};
 };

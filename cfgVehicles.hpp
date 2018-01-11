@@ -65,12 +65,43 @@ class CfgVehicles
 		canSetArea = 1;
 		canSetAreaHeight = 0;
 		canSetAreaShape = 0;
+		
+		function = "TM_fnc_tanksResourceBuildingModule";			
 
 		class AttributeValues
 		{
 			size3[] = {10,10,0};
 			isRectangle = 0;
 		};
+
+		class Attributes : AttributesBase
+		{
+			class Description
+			{
+				data = "AttributeSystemSubcategory";
+				control = "SubCategoryNoHeader2";
+				displayName = "";
+				description = "";
+				tooltip = "";
+			};
+			class BuildingClass : edit
+			{
+				property = "#BuildingClass";
+				typeName = "String";
+				description = "Building Class";
+				defaultValue = "";
+				expression = _this setVariable ["#BuildingClass", _value];
+			};		
+			class BuildingMarker : edit
+			{
+				property = "#BuildingMarker";
+				typeName = "String";
+				description = "Building Marker";
+				defaultValue = "";
+				expression = _this setVariable ["#BuildingMarker", _value];
+			};		
+		};
+		
 	};
 	
 	#include "Modules\ModuleResourceAmmunition\ModuleResourceAmmunition.hpp"

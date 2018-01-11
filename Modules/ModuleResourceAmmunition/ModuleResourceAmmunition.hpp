@@ -1,28 +1,23 @@
-	class ModuleResourceAmmunition : ResourceModules
+	class ModuleResourceAmmunition : ResourceModulesArea
 	{
 		icon = "A3\Ui_f\data\IGUI\Cfg\simpleTasks\types\rearm_ca.paa"; 
 		scope = 2;
 		displayName = $STR_TM_ResourceAmmunition;
-		function = "TM_fnc_moduleResourceAmmunition";
-		
-		canSetArea = 1;
-		canSetAreaHeight = 0;
-		canSetAreaShape = 0;
+		functionSpecific = "TM_fnc_resourceAmmunition";
 
-		class AttributeValues
+		class Attributes: Attributes
 		{
-			size3[] = {10,10,0};
-			isRectangle = 0;
+			class Description : Description 
+			{
+				description = $STR_TM_ResourceAmmunition;
+			};
+			class BuildingClass : BuildingClass
+			{
+				defaultValue = """B_Slingload_01_Ammo_F""";
+			};		
+			class BuildingMarker : BuildingMarker
+			{
+				defaultValue = """loc_RearmStation""";
+			};		
 		};
-
-		// class Attributes : AttributesBase
-		// {
-     
-		// 	class ModuleDescription: ModuleDescription{};
-		// };
-
-		// class ModuleDescription: ModuleDescription
-		// {
-		// 	description = "Capture the Zone";//TODO desc.
-		// };
 	};

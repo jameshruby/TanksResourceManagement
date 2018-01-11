@@ -1,11 +1,4 @@
-params["_pos", "_radius", "_direction"];
-
-private _fuel = createVehicle ["Land_RepairDepot_01_civ_F_NoFunction", [_pos select 0, _pos select 1, _pos select 2], [], 0, "CAN_COLLIDE"];
-_fuel allowDamage false;
-_fuel setVectorUp [0, 0, 1];
-//_fuel setDir (_direction - 90);	
-
-[_fuel, "loc_RepairStation"] call TM_fnc_addMarkerBoundAreaIcon;
+params["_pos", "_radius"];
 
 private _trigger =	 createTrigger ["EmptyDetector", _pos];
 //_trigger setTriggerText _triggerName;
