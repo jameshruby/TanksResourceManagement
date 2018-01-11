@@ -23,7 +23,8 @@ switch _mode do {
 			["FAF init AF %1",typeName _module ] call bis_fnc_logFormat;
 			private _radius = (_area select 0) max (_area select 1);
 			private _functionNameToExecute =  getText(configFile >> "CfgVehicles" >> typeof _module >> "functionSpecific");;
-			[_pos, _radius] call (missionNamespace getVariable [_functionNameToExecute,{}]);
+			
+			[_pos, _radius, _functionNameToExecute] call TM_fnc_createTriggerFunctionAction;
 		};
 	};
 	case "attributesChanged3DEN": {// When some attributes were changed (including position and rotation)

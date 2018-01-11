@@ -13,18 +13,17 @@ class CfgFunctions
 
 			class moduleCreateBuilding;
 			class tanksResourceBuildingModule;
+			class createTriggerFunctionAction;
 		};
 
 		class ResourceRepairFunctions
 		{
 			file = "A3\TanksResourceManagement\Modules\ModuleResourceRepair\Functions";
-			class resourceRepair;
 			class resourceRepairAddAction;
 		};
 		class ResourceAmmunitionFunctions
 		{
 			file = "A3\TanksResourceManagement\Modules\ModuleResourceAmmunition\Functions";
-			class resourceAmmunition;
 			class resourceAmmunitionAddAction;
 			
 			class allTurretMagazinesToAdd;
@@ -32,7 +31,6 @@ class CfgFunctions
 		class ResourceFuelFunctions
 		{
 			file = "A3\TanksResourceManagement\Modules\ModuleResourceFuel\Functions";
-			class resourceRefuel;
 			class resourceRefuelAddAction;
 		};
 
