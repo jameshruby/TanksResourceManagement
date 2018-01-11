@@ -1,12 +1,5 @@
 params["_pos", "_radius", "_direction"];
 
-private _fuel = createVehicle ["Land_fs_roof_F", [_pos select 0, _pos select 1, -1], [], 0, "CAN_COLLIDE"];
-_fuel setVectorUp [0, 0, 1];
-_fuel setDir (_direction - 90);	
-_fuel allowDamage false;
-
-[_fuel, "loc_Fuelstation"] call TM_fnc_addMarkerBoundAreaIcon;
-
 private _trigger =	 createTrigger ["EmptyDetector", _pos];
 //_trigger setTriggerText _triggerName;
 _trigger setTriggerTimeout [0, 0, 0, true];

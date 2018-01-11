@@ -1,8 +1,7 @@
 params["_object", "_holdActionProgress", "_maxDuration"];
 
-private _totalAmmoToAdd = 0;
-private _maxAmmoToAdd = 0;
-private _holdActionDuration = 0;
+private _totalAmmoToAdd = 1;
+private _maxAmmoToAdd = 1;
 
 private _magsToPushPerTick = [];  //ammo, how much per tick
 private _mags = magazinesAllTurrets _object;
@@ -17,6 +16,10 @@ private _mags = magazinesAllTurrets _object;
 		_magsToPushPerTick pushBack ([_className, _turretPath, _ammoPerTick, _ammoCount]);
 	};
 } forEach _mags;
-_holdActionDuration = (_totalAmmoToAdd/_maxAmmoToAdd) *  _maxDuration;
+
+private _holdActionDuration = 0;
+if (_maxAmmoToAdd > 0) then {
+	_holdActionDuration = (_totalAmmoToAdd/_maxAmmoToAdd) *  _maxDuration;
+};
 
 [_magsToPushPerTick, _holdActionDuration]

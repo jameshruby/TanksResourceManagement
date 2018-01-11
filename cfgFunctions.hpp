@@ -9,6 +9,9 @@ class CfgFunctions
 		{
 			file = "A3\TanksResourceManagement\Functions";
 			class createLocationMarkerIcon;
+			class createMapEditorBuilding;
+
+			class moduleCreateBuilding;
 		};
 
 		class ResourceRepairFunctions
