@@ -7,10 +7,6 @@
 
 		class Attributes: Attributes
 		{
-			class Description : Description 
-			{
-				description = $STR_TM_ResourceAmmunition;
-			};
 			class BuildingClass : BuildingClass
 			{
 				defaultValue = """B_Slingload_01_Ammo_F_NoFunction""";
@@ -21,6 +17,13 @@
 			class BuildingMarker : BuildingMarker
 			{
 				defaultValue = """loc_RearmStation""";
-			};		
+			};
+
+			class ModuleDescription: ModuleDescription{};			
+		};
+
+		class ModuleDescription: ModuleDescription
+		{
+			description = $STR_TM_ResourceAmmunitionDescription;
 		};
 	}; 

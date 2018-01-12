@@ -7,10 +7,6 @@ class ModuleResourceRepair : ResourceModulesArea
 	
 	class Attributes: Attributes
 	{
-		class Description : Description 
-		{
-			description = $STR_TM_ResourceRepair;
-		};
 		class BuildingClass : BuildingClass
 		{
 			defaultValue = """Land_RepairDepot_01_civ_F_NoFunction""";
@@ -21,7 +17,14 @@ class ModuleResourceRepair : ResourceModulesArea
 		class BuildingMarker : BuildingMarker
 		{
 			defaultValue = """loc_RepairStation""";
-		};		
+		};	
+
+		class ModuleDescription: ModuleDescription{};		
+	};
+
+	class ModuleDescription: ModuleDescription
+	{
+		description = $STR_TM_ResourceRepairDescription;
 	};
 };
 

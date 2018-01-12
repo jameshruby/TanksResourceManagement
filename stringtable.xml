@@ -35,5 +35,22 @@
           <Original>Function to execute</Original>
       </Key>
    </Container>
+    <Container name="DisplayNames">
+      <Key ID="STR_TM_ResourceAmmunitionDescription">
+        <Original>
+            Module creates building representing ammunution cargo in editor, and attaches holdAction which will gradually add ammo for all vehicle turrets when players vehicle is in radius of the module size.
+        </Original>
+      </Key>
+      <Key ID="STR_TM_ResourceFuelDescription">
+        <Original>
+            Module creates building representing fuel station in editor, and attaches holdAction which will gradually refill fuel when players vehicle is in radius of the module size.
+        </Original>
+      </Key>
+      <Key ID="STR_TM_ResourceRepairDescription">
+        <Original>
+            Module creates building representing repair station in editor, and attaches holdAction which will gradually repair vehicle when players vehicle is in radius of the module size.
+         </Original>
+      </Key>
+    </Container>
   </Package>
 </Project>

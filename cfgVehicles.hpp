@@ -33,10 +33,7 @@ class CfgVehicles
 		{
 			class Units;
 		};
-		class ModuleDescription
-		{
-			//class AnyBrain;
-		};
+		class ModuleDescription;
 		class AttributesBase
 		{
 			class Default;
@@ -109,7 +106,13 @@ class CfgVehicles
 				defaultValue = "";
 				expression = _this setVariable ["#BuildingMarker", _value];
 			};		
+
+			class ModuleDescription: ModuleDescription{};
 		};
+		
+		class ModuleDescription: ModuleDescription
+		{
+		};	
 		
 	};
 	
