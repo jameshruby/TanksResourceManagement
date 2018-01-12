@@ -14,7 +14,10 @@
 			class BuildingClass : BuildingClass
 			{
 				defaultValue = """B_Slingload_01_Ammo_F_NoFunction""";
-			};		
+			};
+
+			class DrawBuildingMarkerIcon: DrawBuildingMarkerIcon{};
+
 			class BuildingMarker : BuildingMarker
 			{
 				defaultValue = """loc_RearmStation""";

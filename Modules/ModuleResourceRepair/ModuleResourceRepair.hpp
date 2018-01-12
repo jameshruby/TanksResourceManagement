@@ -15,6 +15,9 @@ class ModuleResourceRepair : ResourceModulesArea
 		{
 			defaultValue = """Land_RepairDepot_01_civ_F_NoFunction""";
 		};		
+
+		class DrawBuildingMarkerIcon: DrawBuildingMarkerIcon{};
+
 		class BuildingMarker : BuildingMarker
 		{
 			defaultValue = """loc_RepairStation""";

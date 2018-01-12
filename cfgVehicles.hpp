@@ -84,19 +84,28 @@ class CfgVehicles
 				description = "";
 				tooltip = "";
 			};
-			class BuildingClass : edit
+			class BuildingClass : Edit
 			{
 				property = "#BuildingClass";
 				typeName = "String";
-				description = "Building Class";
+				displayName = "Building Class";
 				defaultValue = "";
 				expression = _this setVariable ["#BuildingClass", _value];
 			};		
-			class BuildingMarker : edit
+			
+			class DrawBuildingMarkerIcon : Checkbox
+			{
+				property = "#DrawBuildingMarkerIcon";
+				displayName = "Draw building marker icon";
+				defaultValue = "true";
+				expression = _this setVariable ["#DrawBuildingMarkerIcon", _value];
+			};		
+
+			class BuildingMarker : Edit
 			{
 				property = "#BuildingMarker";
 				typeName = "String";
-				description = "Building Marker";
+				displayName = "Building Marker";
 				defaultValue = "";
 				expression = _this setVariable ["#BuildingMarker", _value];
 			};		

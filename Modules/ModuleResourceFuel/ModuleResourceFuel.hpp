@@ -7,7 +7,7 @@ class ModuleResourceFuel : ResourceModulesArea
 
 	class Attributes: Attributes
 	{
-		class Description : Description 
+		class Description: Description
 		{
 			description = $STR_TM_ResourceFuel;
 		};
@@ -15,6 +15,9 @@ class ModuleResourceFuel : ResourceModulesArea
 		{
 			defaultValue = """Land_fs_roof_F""";
 		};		
+
+		class DrawBuildingMarkerIcon: DrawBuildingMarkerIcon{};
+
 		class BuildingMarker : BuildingMarker
 		{
 			defaultValue = """loc_Fuelstation""";

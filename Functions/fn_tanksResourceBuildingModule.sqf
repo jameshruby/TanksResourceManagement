@@ -2,8 +2,6 @@ private _mode = param [0,"",[""]];
 private _input = param [1,[],[[]]];
 _module = _input param [0,objNull,[objNull]];
 
-private _buildingMarker = _module getVariable "#BuildingMarker";
-private _buildingClass = _module getVariable "#BuildingClass";
 
 private _pos = getPos _module;	
 private _direction = direction _module;
@@ -15,8 +13,7 @@ switch _mode do {
 		["FAF %1", _module getVariable "#building"] call bis_fnc_logFormat;
 		if (is3DEN) exitWith{};
 		
-		private _building = [_module, _buildingClass, _buildingMarker] call TM_fnc_moduleCreateBuilding;	
-		_building setPos _pos;	
+		_module call TM_fnc_moduleCreateBuilding;	
 		private _area = _module getVariable "objectArea";	
 		
 		if (_isActivated) then {	
@@ -32,7 +29,7 @@ switch _mode do {
 		private _initialized = _module getVariable ["#initialized",false];
 		if (!_initialized) then
 		{
-			[_module, _buildingClass, _buildingMarker] call TM_fnc_moduleCreateBuilding;
+			_module call TM_fnc_moduleCreateBuilding;
 			_module setVariable ["#initialized",true];
 		};	
 
@@ -42,7 +39,7 @@ switch _mode do {
 		_building setPos _pos;	
 	};
 	case "registeredToWorld3DEN": {// When added to the world (e.g., after undoing and redoing creation)
-		[_module, _buildingClass, _buildingMarker] call TM_fnc_moduleCreateBuilding;
+		_module call TM_fnc_moduleCreateBuilding;
 		["FAF registeredToWorld3DEN %1", _module getVariable "#building"] call bis_fnc_logFormat;
 	};
 	case "unregisteredFromWorld3DEN": {// When removed from the world (i.e., by deletion or undoing creation)
