@@ -13,7 +13,7 @@ class ModuleResourceRepair : ResourceModulesArea
 		};
 		class BuildingClass : BuildingClass
 		{
-			defaultValue = """Land_RepairDepot_01_civ_F""";
+			defaultValue = """Land_RepairDepot_01_civ_F_NoFunction""";
 		};		
 		class BuildingMarker : BuildingMarker
 		{

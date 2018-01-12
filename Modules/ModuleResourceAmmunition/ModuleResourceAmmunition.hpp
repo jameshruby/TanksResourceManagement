@@ -13,11 +13,11 @@
 			};
 			class BuildingClass : BuildingClass
 			{
-				defaultValue = """B_Slingload_01_Ammo_F""";
+				defaultValue = """B_Slingload_01_Ammo_F_NoFunction""";
 			};		
 			class BuildingMarker : BuildingMarker
 			{
 				defaultValue = """loc_RearmStation""";
 			};		
 		};
-	};
+	}; 
