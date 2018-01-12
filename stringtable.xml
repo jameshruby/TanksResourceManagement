@@ -34,6 +34,15 @@
      <Key ID="STR_TM_FunctionToExecute">
           <Original>Function to execute</Original>
       </Key>
+      <Key ID="STR_TM_AttrributeBuildingClass">
+          <Original>Building class</Original>
+      </Key>
+      <Key ID="STR_TM_AttrributeDrawBuildingMarkerIcon">
+          <Original>Draw building marker icon</Original>
+      </Key>
+      <Key ID="STR_TM_AttrributeBuildingMarker">
+          <Original>Building marker</Original>
+      </Key>
    </Container>
     <Container name="DisplayNames">
       <Key ID="STR_TM_ResourceAmmunitionDescription">

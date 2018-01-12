@@ -73,27 +73,18 @@ class CfgVehicles
 
 		class Attributes : AttributesBase
 		{
-			class Description
-			{
-				data = "AttributeSystemSubcategory";
-				control = "SubCategoryNoHeader2";
-				displayName = "";
-				description = "";
-				tooltip = "";
-			};
 			class BuildingClass : Edit
 			{
 				property = "#BuildingClass";
 				typeName = "String";
-				displayName = "Building Class";
-				defaultValue = "";
+				displayName = $STR_TM_AttrributeBuildingClass;
 				expression = _this setVariable ["#BuildingClass", _value];
 			};		
 			
 			class DrawBuildingMarkerIcon : Checkbox
 			{
 				property = "#DrawBuildingMarkerIcon";
-				displayName = "Draw building marker icon";
+				displayName = $STR_TM_AttrributeDrawBuildingMarkerIcon;
 				defaultValue = "true";
 				expression = _this setVariable ["#DrawBuildingMarkerIcon", _value];
 			};		
@@ -102,8 +93,7 @@ class CfgVehicles
 			{
 				property = "#BuildingMarker";
 				typeName = "String";
-				displayName = "Building Marker";
-				defaultValue = "";
+				displayName = $STR_TM_AttrributeBuildingMarker;
 				expression = _this setVariable ["#BuildingMarker", _value];
 			};		
 
