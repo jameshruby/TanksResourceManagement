@@ -29,8 +29,8 @@ switch _mode do {
 			private _idleIcon = getText(_resourcesModuleParams >> "idleIcon");
 			private _progressIcon = getText(_resourcesModuleParams >> "progressIcon");
 
-			private _callbackFunctionName = getText(_resourcesModuleParams >> "callbackFunctionName");
-			private _initActionFunctionName = getText(_resourcesModuleParams >> "initActionFunctionName");
+			private _callbackFunctionName = getText(_resourcesModuleParams >> "callbackFunction");
+			private _initActionFunctionName = getText(_resourcesModuleParams >> "initActionFunction");
 		
 			private _actionFncParams =[
 				_title, _maxDuration, _holdActionMaxProgress,
