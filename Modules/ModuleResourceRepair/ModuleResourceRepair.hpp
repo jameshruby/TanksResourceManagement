@@ -3,8 +3,14 @@ class ModuleResourceRepair : ResourceModulesArea
     icon = "A3\Ui_f\data\IGUI\Cfg\simpleTasks\types\repair_ca.paa"; 
 	scope = 2;
 	displayName = $STR_TM_ResourceRepair;
-	functionSpecific = "TM_fnc_resourceRepairAddAction";	
 	
+	class ResourcesModuleParams : ResourcesModuleParams
+	{
+		title = "REPAIR";
+		callbackFunction = "TM_fnc_getDurationAndRepairsNeeded";
+		resourceActionFunction = "TM_fnc_repair";
+	};
+
 	class Attributes: Attributes
 	{
 		class BuildingClass : BuildingClass
@@ -27,4 +33,3 @@ class ModuleResourceRepair : ResourceModulesArea
 		description = $STR_TM_ResourceRepairDescription;
 	};
 };
-

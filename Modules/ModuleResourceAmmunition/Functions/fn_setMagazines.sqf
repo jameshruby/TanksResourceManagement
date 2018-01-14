@@ -1,5 +1,4 @@
-params["_target", "_arguments", "_currentProgress"];
-_arguments params["_magsToPushPerTick"];
+params["_target", "_magsToPushPerTick", "_currentProgress"];
 if (count _magsToPushPerTick > 0) then 	{
 	{
 		_x params["_className", "_turretPath", "_ammoPerTick", "_ammoCount"];

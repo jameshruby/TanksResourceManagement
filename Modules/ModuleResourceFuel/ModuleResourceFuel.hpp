@@ -3,8 +3,14 @@ class ModuleResourceFuel : ResourceModulesArea
 	icon = "A3\Ui_f\data\IGUI\Cfg\simpleTasks\types\refuel_ca.paa"; 
 	scope = 2;
 	displayName = $STR_TM_ResourceFuel;
-	functionSpecific = "TM_fnc_resourceRefuelAddAction";  
-
+	
+	class ResourcesModuleParams : ResourcesModuleParams
+	{
+		title = "REFUEL";
+		callbackFunction = "TM_fnc_getDurationAndFuelNeeded";
+		resourceActionFunction = "TM_fnc_refuel";
+	};
+	
 	class Attributes: Attributes
 	{
 		class BuildingClass : BuildingClass

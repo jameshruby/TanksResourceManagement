@@ -65,6 +65,15 @@ class CfgVehicles
 		
 		function = "TM_fnc_tanksResourceBuildingModule";			
 
+		class ResourcesModuleParams//mod specific
+		{
+			maxDuration = 30;
+			holdActionMaxProgress = 24;
+
+			idleIcon = "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa";
+			progressIcon = "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa";
+		};
+		
 		class AttributeValues
 		{
 			size3[] = {10,10,0};

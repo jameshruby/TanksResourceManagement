@@ -19,13 +19,30 @@ switch _mode do {
 		if (_isActivated) then {	
 			["FAF init AF %1",typeName _module ] call bis_fnc_logFormat;
 			private _radius = (_area select 0) max (_area select 1);
-			private _functionNameToExecute =  getText(configFile >> "CfgVehicles" >> typeof _module >> "functionSpecific");;
+
+			private _resourcesModuleParams =  (configFile >> "CfgVehicles" >> typeof _module >> "ResourcesModuleParams");
 			
-			[_pos, _radius, _functionNameToExecute] call TM_fnc_createTriggerFunctionAction;
+			private _title = getText(_resourcesModuleParams >> "title");
+			private _maxDuration = getNumber(_resourcesModuleParams >> "maxDuration");
+			private _holdActionMaxProgress = getNumber(_resourcesModuleParams >> "holdActionMaxProgress");
+		
+			private _idleIcon = getText(_resourcesModuleParams >> "idleIcon");
+			private _progressIcon = getText(_resourcesModuleParams >> "progressIcon");
+
+			private _callbackFunctionName = getText(_resourcesModuleParams >> "callbackFunctionName");
+			private _initActionFunctionName = getText(_resourcesModuleParams >> "initActionFunctionName");
+		
+			private _actionFncParams =[
+				_title, _maxDuration, _holdActionMaxProgress,
+				[_initActionFunctionName,  _callbackFunctionName],
+				[_idleIcon, _progressIcon]
+			];
+
+			[_pos, _radius, _actionFncParams] call TM_fnc_createTriggerFunctionAction;
 		};
 	};
 	case "attributesChanged3DEN": {// When some attributes were changed (including position and rotation)
-		//as loading/undoing will hit only this event...
+		//as loading/undoing will hit only this event... 
 		private _initialized = _module getVariable ["#initialized",false];
 		if (!_initialized) then
 		{

@@ -20,22 +20,20 @@ class CfgFunctions
 		class ResourceRepairFunctions
 		{
 			file = "A3\TanksResourceManagement\Modules\ModuleResourceRepair\Functions";
-			class resourceRepairAddAction;
+			class getDurationAndRepairsNeeded;
 			class repair;
 		};
 		class ResourceAmmunitionFunctions
 		{
 			file = "A3\TanksResourceManagement\Modules\ModuleResourceAmmunition\Functions";
-			class resourceAmmunitionAddAction;
-			
 			class allTurretMagazinesToAdd;
 			class setMagazines;
 		};
 		class ResourceFuelFunctions
 		{
 			file = "A3\TanksResourceManagement\Modules\ModuleResourceFuel\Functions";
-			class resourceRefuelAddAction;
 			class refuel;
+			class getDurationAndFuelNeeded;
 		};
 
 		class Modules {
