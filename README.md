@@ -47,7 +47,7 @@ Hold action and its functonality is parametrized in two ways:
 		 progressIcon = "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa"; //path to the progress icon
 
 2) Required module functions
-  - fn_addResourceFraction
+  ⋅⋅* fn_addResourceFraction
 
     Description:
     Adds fraction of given resource to target.
@@ -64,27 +64,27 @@ Hold action and its functonality is parametrized in two ways:
     Returns:
     Nothing
   
-  - fn_getResourceFractionAndDuration
+  ⋅⋅* fn_getResourceFractionAndDuration
 
-    Description:
-    Calculate how much of given resource will be added in holdActon tick, to replenish 
-    given resource on full progress of holdAction, and how long it will take
+    > Description:
+    > Calculate how much of given resource will be added in holdActon tick, to replenish 
+    > given resource on full progress of holdAction, and how long it will take
 
-    !IMPORTANT: Overwrite this function in specifc module, 
-    to add desired resource to the target, this function is not to be
-    called directly (unless debug). 
+    > !IMPORTANT: Overwrite this function in specifc module, 
+    > to add desired resource to the target, this function is not to be
+    > called directly (unless debug). 
 
-    Parameter(s):
-    _this select 0: OJBECT - players vehicle for which the resource is calculated
-    _this select 1: NUMBER - _holdActionProgress - constant(24) number of ticks in holdAction
-    _this select 2: NUMBER - _holdActionDuration - total duration of holdAction
+    > Parameter(s):
+    > _this select 0: OJBECT - players vehicle for which the resource is calculated
+    > _this select 1: NUMBER - _holdActionProgress - constant(24) number of ticks in holdAction
+    > _this select 2: NUMBER - _holdActionDuration - total duration of holdAction
       
-    Returns:
-    _this select 0: NUMBER - how much of given resource will be added
-    _this select 1: NUMBER - how long it will take to replenish the resource fully
+    > Returns:
+    > _this select 0: NUMBER - how much of given resource will be added
+    > _this select 1: NUMBER - how long it will take to replenish the resource fully
     
-   DONT REGISTER THIS FUNCTIONS YOURSELF, USE "RESOURCE_MODULE_FUNCTIONS" MACRO, WITH NAME OF YOUR MODULE CLASS AS A PARAMETER
-   THIS IS IMPORTANT, BECAUSE THE FUNCTIONS ARE LINKED AUTOMATICALLY WITH GIVEN MODULE
+    > DONT REGISTER THIS FUNCTIONS YOURSELF, USE "RESOURCE_MODULE_FUNCTIONS" MACRO, WITH NAME OF YOUR MODULE CLASS AS A PARAMETER
+    > THIS IS IMPORTANT, BECAUSE THE FUNCTIONS ARE LINKED AUTOMATICALLY WITH GIVEN MODULE
 
 ### Functions linking
 Functions in Arma Function manager are formed from TAG_ and function name itself.
