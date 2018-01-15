@@ -1,10 +1,6 @@
 class Logic;
 class Module_F: Logic
 {
-		// class ArgumentsBaseUnits
-		// {
-		// 	class Units;
-		// };
 	class AttributesBase
 	{
 		class Edit;
