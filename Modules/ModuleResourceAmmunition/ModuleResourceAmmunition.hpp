@@ -7,8 +7,6 @@
 		class ResourcesModuleParams : ResourcesModuleParams
 		{
 			title = "REARM";
-			callbackFunction = "TM_fnc_allTurretMagazinesToAdd";
-			resourceActionFunction = "TM_fnc_setMagazines";
 		};
 
 		class Attributes: Attributes

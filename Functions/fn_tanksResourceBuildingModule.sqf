@@ -20,7 +20,8 @@ switch _mode do {
 			["FAF init AF %1",typeName _module ] call bis_fnc_logFormat;
 			private _radius = (_area select 0) max (_area select 1);
 
-			private _resourcesModuleParams =  (configFile >> "CfgVehicles" >> typeof _module >> "ResourcesModuleParams");
+			private _moduleName = typeof _module;
+			private _resourcesModuleParams =  (configFile >> "CfgVehicles" >> _moduleName >> "ResourcesModuleParams");
 			
 			private _title = getText(_resourcesModuleParams >> "title");
 			private _maxDuration = getNumber(_resourcesModuleParams >> "maxDuration");
@@ -29,12 +30,11 @@ switch _mode do {
 			private _idleIcon = getText(_resourcesModuleParams >> "idleIcon");
 			private _progressIcon = getText(_resourcesModuleParams >> "progressIcon");
 
-			private _callbackFunctionName = getText(_resourcesModuleParams >> "callbackFunction");
-			private _initActionFunctionName = getText(_resourcesModuleParams >> "resourceActionFunction");
+			private _functionsArray = [_moduleName] call TM_fnc_getResourceModuleFunctionsFromCfgFunctions;	
 		
 			private _actionFncParams =[
 				_title, _maxDuration, _holdActionMaxProgress,
-				[_initActionFunctionName,  _callbackFunctionName],
+				_functionsArray,
 				[_idleIcon, _progressIcon]
 			];
 

@@ -3,7 +3,7 @@ params["_object", "_holdActionProgress", "_maxDuration"];
 private _totalAmmoToAdd = 1;
 private _maxAmmoToAdd = 1;
 
-private _magsToPushPerTick = [];  //ammo, how much per tick
+private _actionAmmoFractions = [];  //ammo, how much per tick
 private _mags = magazinesAllTurrets _object;
 {
 	_x params["_className", "_turretPath","_ammoCount"];
@@ -13,13 +13,14 @@ private _mags = magazinesAllTurrets _object;
 	if (_ammoToAdd > 0) then {
 		_totalAmmoToAdd = _totalAmmoToAdd + _ammoToAdd;	
 		private _ammoPerTick = _ammoToAdd/_holdActionProgress; 
-		_magsToPushPerTick pushBack ([_className, _turretPath, _ammoPerTick, _ammoCount]);
+		_actionAmmoFractions pushBack ([_className, _turretPath, _ammoPerTick, _ammoCount]);
 	};
 } forEach _mags;
 
 private _holdActionDuration = 0;
 if (_maxAmmoToAdd > 0) then {
-	_holdActionDuration = (_totalAmmoToAdd/_maxAmmoToAdd) *  _maxDuration;
+	private _ammoAmout = (_totalAmmoToAdd/_maxAmmoToAdd);
+	_holdActionDuration = [_ammoAmout, _maxDuration] call TM_fnc_getResourceAcquisitionDuration;
 };
 
-[_magsToPushPerTick, _holdActionDuration]
+[_actionAmmoFractions, _holdActionDuration]

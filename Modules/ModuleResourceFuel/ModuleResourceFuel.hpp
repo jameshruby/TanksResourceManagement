@@ -7,8 +7,6 @@ class ModuleResourceFuel : ResourceModulesArea
 	class ResourcesModuleParams : ResourcesModuleParams
 	{
 		title = "REFUEL";
-		callbackFunction = "TM_fnc_getDurationAndFuelNeeded";
-		resourceActionFunction = "TM_fnc_refuel";
 	};
 	
 	class Attributes: Attributes

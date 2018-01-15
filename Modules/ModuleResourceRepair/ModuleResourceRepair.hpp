@@ -7,8 +7,6 @@ class ModuleResourceRepair : ResourceModulesArea
 	class ResourcesModuleParams : ResourcesModuleParams
 	{
 		title = "REPAIR";
-		callbackFunction = "TM_fnc_getDurationAndRepairsNeeded";
-		resourceActionFunction = "TM_fnc_repair";
 	};
 
 	class Attributes: Attributes
