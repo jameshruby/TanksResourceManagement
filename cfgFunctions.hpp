@@ -36,11 +36,12 @@ class CfgFunctions
 		class ResourceFunctions
 		{
 			file = "A3\TanksResourceManagement\ResourceFunctions";
-
+			
 			class getResourceFractionAndDuration;
 			class addResourceFraction;
 		};
 	};
+
 	class ModuleResourceFuel: TanksResourceBase
 	{
 		class ResourceFunctions: ResourceFunctions

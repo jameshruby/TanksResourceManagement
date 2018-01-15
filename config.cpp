@@ -4,4 +4,5 @@
 #include "cfgWeapons.hpp"
 #include "cfgVehicles.hpp"
 #include "cfgMarkers.hpp"
+#include "cfgFactionClasses.hpp"
 #include "cfgMods.hpp"
