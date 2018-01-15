@@ -7,6 +7,8 @@ class ModuleResourceFuel : ResourceModulesArea
 	class ResourcesModuleParams : ResourcesModuleParams
 	{
 		title = "REFUEL";
+		progressIcon = "A3\TanksResourceManagement\Img\holdAction_refuel_CA.paa"; 
+		idleIcon =  "A3\TanksResourceManagement\Img\holdAction_refuel_CA.paa"; 
 	};
 	
 	class Attributes: Attributes

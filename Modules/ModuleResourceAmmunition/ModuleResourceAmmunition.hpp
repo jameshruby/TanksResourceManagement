@@ -7,6 +7,8 @@
 		class ResourcesModuleParams : ResourcesModuleParams
 		{
 			title = "REARM";
+			progressIcon = "A3\TanksResourceManagement\Img\holdAction_rearm_CA.paa";
+			idleIcon =  "A3\TanksResourceManagement\Img\holdAction_rearm_CA.paa";
 		};
 
 		class Attributes: Attributes

@@ -7,6 +7,8 @@ class ModuleResourceRepair : ResourceModulesArea
 	class ResourcesModuleParams : ResourcesModuleParams
 	{
 		title = "REPAIR";
+		progressIcon = "A3\TanksResourceManagement\Img\holdAction_repair_CA.paa";
+		idleIcon = "A3\TanksResourceManagement\Img\holdAction_repair_CA.paa";
 	};
 
 	class Attributes: Attributes
