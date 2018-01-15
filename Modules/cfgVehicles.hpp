@@ -94,4 +94,3 @@ class ResourceModulesArea: ResourceModules
 #include "ModuleResourceAmmunition\ModuleResourceAmmunition.hpp"
 #include "ModuleResourceFuel\ModuleResourceFuel.hpp"
 #include "ModuleResourceRepair\ModuleResourceRepair.hpp"
-#include "ModuleVehicleResourcesInit\ModuleVehicleResourcesInit.hpp"

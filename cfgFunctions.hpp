@@ -23,10 +23,6 @@ class CfgFunctions
 
 			class baseFunctionException;
 		};
-
-		class Modules {
-			class moduleVehicleResourcesInit {file = "A3\TanksResourceManagement\Modules\ModuleVehicleResourcesInit\fn_moduleVehicleResourcesInit.sqf"; };
-		};
 	};
 	
 	//////////////// Module Functions ////////////////////////////////////
