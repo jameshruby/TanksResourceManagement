@@ -47,24 +47,24 @@ Hold action and its functonality is parametrized in two ways:
 		 progressIcon = "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa"; //path to the progress icon
 
 2) Required module functions
-  ⋅⋅* fn_addResourceFraction
+  ⋅⋅⋅ fn_addResourceFraction ⋅⋅
 
-    Description:
-    Adds fraction of given resource to target.
-    Function runs on every tick of holdAction
+  >  Description:
+  >  Adds fraction of given resource to target.
+  >  Function runs on every tick of holdAction
 
-    !IMPORTANT: Overwrite this function in specifc module, 
-    to add desired resource to the target, this function is not to be
-    called directly (unless debug). 
+  >  !IMPORTANT: Overwrite this function in specifc module, 
+  >  to add desired resource to the target, this function is not to be
+  >  called directly (unless debug). 
 
-    Parameter(s):
-    _this select 0: OJBECT - players vehicle to which resource is added
-    _this select 1: NUMBER - ammount of resource to be added, which is retrieved from getResourceFractionAndDuration
+  >  Parameter(s):
+  >  _this select 0: OJBECT - players vehicle to which resource is added
+  > _this select 1: NUMBER - ammount of resource to be added, which is retrieved from getResourceFractionAndDuration
       
     Returns:
     Nothing
   
-  ⋅⋅* fn_getResourceFractionAndDuration
+  ⋅⋅⋅ fn_getResourceFractionAndDuration ⋅⋅
 
     > Description:
     > Calculate how much of given resource will be added in holdActon tick, to replenish 
