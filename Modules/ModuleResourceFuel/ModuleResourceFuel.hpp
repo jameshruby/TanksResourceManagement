@@ -11,6 +11,8 @@ class ModuleResourceFuel : ResourceModulesArea
 	
 	class Attributes: Attributes
 	{
+		class MaxDuration : MaxDuration{};
+		
 		class BuildingClass : BuildingClass
 		{
 			defaultValue = """Land_fs_roof_F""";

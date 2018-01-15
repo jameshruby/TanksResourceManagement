@@ -38,7 +38,6 @@ class ResourceModulesArea: ResourceModules
 
 	class ResourcesModuleParams//mod specific
 	{
-		maxDuration = 30;
 		holdActionMaxProgress = 24;
 
 		idleIcon = "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa";
@@ -53,6 +52,16 @@ class ResourceModulesArea: ResourceModules
 
 	class Attributes : AttributesBase
 	{
+		class MaxDuration
+		{
+			property = "#MaxDuration";
+			displayName = $STR_MaxDurationDisplayName;
+			tooltip = $STR_MaxDuratioDescription;
+			control = "TankResources_maxHoldActonDuration";
+			defaultValue = "30";
+			expression = _this setVariable ["#MaxDuration", _value];
+		};
+
 		class BuildingClass : Edit
 		{
 			property = "#BuildingClass";

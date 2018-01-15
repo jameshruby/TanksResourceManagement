@@ -15,16 +15,18 @@ switch _mode do {
 		
 		_module call TM_fnc_moduleCreateBuilding;	
 		private _area = _module getVariable "objectArea";	
-		
+
 		if (_isActivated) then {	
 			["FAF init AF %1",typeName _module ] call bis_fnc_logFormat;
+			
+			private _maxDuration = _module getVariable "#MaxDuration";
 			private _radius = (_area select 0) max (_area select 1);
 
 			private _moduleName = typeof _module;
 			private _resourcesModuleParams =  (configFile >> "CfgVehicles" >> _moduleName >> "ResourcesModuleParams");
 			
 			private _title = getText(_resourcesModuleParams >> "title");
-			private _maxDuration = getNumber(_resourcesModuleParams >> "maxDuration");
+			
 			private _holdActionMaxProgress = getNumber(_resourcesModuleParams >> "holdActionMaxProgress");
 		
 			private _idleIcon = getText(_resourcesModuleParams >> "idleIcon");
@@ -74,6 +76,3 @@ switch _mode do {
 	};
 };
 true
-
-
-

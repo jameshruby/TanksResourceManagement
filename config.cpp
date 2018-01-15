@@ -6,3 +6,4 @@
 #include "cfgMarkers.hpp"
 #include "cfgFactionClasses.hpp"
 #include "cfgMods.hpp"
+#include "cfg3DEN.hpp"

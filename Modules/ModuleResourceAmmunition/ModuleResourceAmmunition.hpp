@@ -11,6 +11,8 @@
 
 		class Attributes: Attributes
 		{
+			class MaxDuration : MaxDuration{};
+
 			class BuildingClass : BuildingClass
 			{
 				defaultValue = """B_Slingload_01_Ammo_F_NoFunction""";

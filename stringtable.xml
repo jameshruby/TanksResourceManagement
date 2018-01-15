@@ -43,8 +43,16 @@
       <Key ID="STR_TM_AttrributeBuildingMarker">
           <Original>Building marker</Original>
       </Key>
+      <Key ID="STR_MaxDurationDisplayName">
+          <Original>Max. duration</Original>
+      </Key>
    </Container>
     <Container name="DisplayNames">
+      <Key ID="STR_MaxDuratioDescription">
+        <Original>
+            Number of seconds action it will take to replenish 100% of resource
+        </Original>
+      </Key>
       <Key ID="STR_TM_ResourceAmmunitionDescription">
         <Original>
             Module creates building representing ammunution cargo in editor, and attaches holdAction which will gradually add ammo for all vehicle turrets when players vehicle is in radius of the module size.

@@ -11,6 +11,8 @@ class ModuleResourceRepair : ResourceModulesArea
 
 	class Attributes: Attributes
 	{
+		class MaxDuration : MaxDuration{};
+
 		class BuildingClass : BuildingClass
 		{
 			defaultValue = """Land_RepairDepot_01_civ_F_NoFunction""";
