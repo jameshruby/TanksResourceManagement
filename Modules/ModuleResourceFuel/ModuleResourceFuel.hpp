@@ -6,7 +6,7 @@ class ModuleResourceFuel : ResourceModulesArea
 	
 	class ResourcesModuleParams : ResourcesModuleParams
 	{
-		title = "REFUEL";
+		title = $STR_TM_HoldAction_refuel;
 		progressIcon = "A3\TanksResourceManagement\Img\holdAction_refuel_CA.paa"; 
 		idleIcon =  "A3\TanksResourceManagement\Img\holdAction_refuel_CA.paa"; 
 	};

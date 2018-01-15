@@ -6,7 +6,7 @@
 		
 		class ResourcesModuleParams : ResourcesModuleParams
 		{
-			title = "REARM";
+			title = $STR_TM_HoldAction_rearm;
 			progressIcon = "A3\TanksResourceManagement\Img\holdAction_rearm_CA.paa";
 			idleIcon =  "A3\TanksResourceManagement\Img\holdAction_rearm_CA.paa";
 		};

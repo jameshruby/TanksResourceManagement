@@ -69,5 +69,19 @@
          </Original>
       </Key>
     </Container>
+    <Container name="HoldActionTitles">
+     <Key ID="STR_TM_HoldAction_unknown">
+        <Original>UNKNOWN RESOURCE ACTION</Original>
+      </Key>
+      <Key ID="STR_TM_HoldAction_rearm">
+        <Original>REARM</Original>
+      </Key>
+      <Key ID="STR_TM_HoldAction_refuel">
+        <Original>REFUEL</Original>
+      </Key>
+      <Key ID="STR_TM_HoldAction_repair">
+        <Original>REPAIR</Original>
+      </Key>
+    </Container>
   </Package>
 </Project>

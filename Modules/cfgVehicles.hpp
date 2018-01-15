@@ -33,8 +33,10 @@ class ResourceModulesArea: ResourceModules
 	function = "TM_fnc_tanksResourceBuildingModule";			
 
 	class ResourcesModuleParams//mod specific
-	{
+	{	
 		holdActionMaxProgress = 24;
+
+		title = $STR_TM_HoldAction_unknown;
 
 		idleIcon = "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa";
 		progressIcon = "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa";

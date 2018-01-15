@@ -6,7 +6,7 @@ class ModuleResourceRepair : ResourceModulesArea
 	
 	class ResourcesModuleParams : ResourcesModuleParams
 	{
-		title = "REPAIR";
+		title = $STR_TM_HoldAction_repair;
 		progressIcon = "A3\TanksResourceManagement\Img\holdAction_repair_CA.paa";
 		idleIcon = "A3\TanksResourceManagement\Img\holdAction_repair_CA.paa";
 	};
