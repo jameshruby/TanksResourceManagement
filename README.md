@@ -1,6 +1,6 @@
-#Tank Resource Management Modules
+# Tank Resource Management Modules
 
-##About
+## About
 Altought Arma3 contains interactive buildings, such as Rearm boxes, or newly added RepairDepot 
 in Tanks DLC, it seemed that there was never emphasis on resource management gameplay.
 
@@ -25,17 +25,17 @@ Usage in TvT mission could be following:
   - If player gets to the fuel station, and gets maximum fuel, it could be enough for rest of the mission to not worry about fuel
     On the other hand, player is at risk of lossing mission objective, or being eliminated while sitting stationary around fuel pump.
 
-##Module Usage
+## Module Usage
 Place the modules in the editor(located under Tanks Resource Management category) and play.
 You can set maximum duration of action which is number of seconds to completely refill given resource
 
-##System Overview
+## System Overview
 System contains modules with attached holdAction. These modules are inheriting from  ResourceModulesArea base class. 
 HoldAction will substantiallly add given resource, full progress of holdAction means that resource is fully replenished,
 based on current ammount of the resource, that can take from 1sec. to maximumDuration of hold action(default: 30s).
 These resources are applied only on players vehicles not the players themselfs.
 
-###Hold action parametrization
+### Hold action parametrization
 Hold action and its functonality is parametrized in two ways:
 
 1) ResourcesModuleParams subclass of given module
@@ -86,19 +86,19 @@ Hold action and its functonality is parametrized in two ways:
    DONT REGISTER THIS FUNCTIONS YOURSELF, USE "RESOURCE_MODULE_FUNCTIONS" MACRO, WITH NAME OF YOUR MODULE CLASS AS A PARAMETER
    THIS IS IMPORTANT, BECAUSE THE FUNCTIONS ARE LINKED AUTOMATICALLY WITH GIVEN MODULE
 
-###Functions linking
+### Functions linking
 Functions in Arma Function manager are formed from TAG_ and function name itself.
-Using "RESOURCE_MODULE_FUNCTIONS" macro is important, because system assumes, that overridable functions
-will be in format "<YourModuleName>_fnc_addResourceFraction" and  "<YourModuleName>_fnc_getResourceFractionAndDuration"
+Using *RESOURCE_MODULE_FUNCTIONS* macro is important, because system assumes, that overridable functions
+will be in format *<YourModuleName>_fnc_addResourceFraction* and  *<YourModuleName>_fnc_getResourceFractionAndDuration*
 these function names are looked up and returned as a functions on mission init and passed to the holdAction.
 
-###Adding new resource:
+### Adding new resource:
 - Create new folder under Modules eq. ModuleResourceLollipops
-- Create fn_addResourceFraction.sqf, fn_getResourceFractionAndDuration.sqf and fill them with desired behaviour
+- Create *fn_addResourceFraction.sqf*, *fn_getResourceFractionAndDuration.sqf* and fill them with desired behaviour
 - Use RESOURCE_MODULE_FUNCTIONS macros macro for registering the functions
 - Create module class (currently theres no macro) and overwrite ResourcesModuleParams subclass
 
-##Known issues and current caveats
+## Known issues and current caveats
 - HoldActions are currently not displaying in multiplayer
  
 - Current solution is not handling more players in the vehicle, as its build for PvP scenario and will possibly be merged 
