@@ -42,34 +42,19 @@ class CfgFunctions
 		};
 	};
 
-	class ModuleResourceFuel: TanksResourceBase
-	{
-		class ResourceFunctions: ResourceFunctions
-		{
-			file = "A3\TanksResourceManagement\Modules\ModuleResourceFuel\Functions";
-	
-			class getResourceFractionAndDuration: getResourceFractionAndDuration{};
-			class addResourceFraction: addResourceFraction{};
-		}; 
-	};
-	class ModuleResourceRepair: TanksResourceBase
-	{
-		class ResourceFunctions: ResourceFunctions
-		{
-			file = "A3\TanksResourceManagement\Modules\ModuleResourceRepair\Functions";
-			
-			class getResourceFractionAndDuration: getResourceFractionAndDuration{};
-			class addResourceFraction: addResourceFraction{};
-		}; 
-	};
-	class ModuleResourceAmmunition: TanksResourceBase
-	{
-		class ResourceFunctions: ResourceFunctions
-		{
-			file = "A3\TanksResourceManagement\Modules\ModuleResourceAmmunition\Functions";
-			
-			class getResourceFractionAndDuration: getResourceFractionAndDuration{};
-			class addResourceFraction: addResourceFraction{};
-		}; 
-	};
+	#define RESOURCE_MODULE_FUNCTIONS(MODULE_CLASS_NAME)\
+    class ##MODULE_CLASS_NAME##: TanksResourceBase\
+    {\
+        class ResourceFunctions: ResourceFunctions\
+        {\
+            file = \A3\TanksResourceManagement\Modules\##MODULE_CLASS_NAME##\Functions;\
+            \
+            class getResourceFractionAndDuration: getResourceFractionAndDuration{};\
+            class addResourceFraction: addResourceFraction{};\
+        };\
+    };\
+
+	RESOURCE_MODULE_FUNCTIONS(ModuleResourceFuel)
+	RESOURCE_MODULE_FUNCTIONS(ModuleResourceRepair)
+	RESOURCE_MODULE_FUNCTIONS(ModuleResourceAmmunition)
 };
