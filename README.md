@@ -30,10 +30,13 @@ Usage in TvT mission could be following:
 Place the modules in the editor(located under Tanks Resource Management category) and play. You can set maximum duration of action which is number of seconds to completely refill given resource
 
 ## System Overview
-System contains modules with attached holdAction. These modules are inheriting from  ResourceModulesArea base class. 
+System contains modules with attached holdAction. These modules are inheriting from ResourceModulesArea base class. 
 HoldAction will substantiallly add given resource, full progress of holdAction means that resource is fully replenished,
 based on current ammount of the resource, that can take from 1sec. to maximumDuration of hold action(default: 30s).
 These resources are applied only on players vehicles not the players themselfs.
+
+**The hold action is avialable only to effective commander of vehicle** (this prevents situation when more 
+players in same vehicle could run hold action)
 
 ### Hold action parametrization
 Hold action and its functonality is parametrized in two ways:
@@ -104,14 +107,9 @@ these function names are looked up and returned as a functions on mission init a
 - Create module class (currently theres no macro) and overwrite ResourcesModuleParams subclass
 
 ## Known issues and current caveats
- 
-- Current solution is not handling more players in the vehicle, as its build for PvP scenario and will possibly be merged 
-  With specific mission: 
-  The hold action will be added to all players in the vehicle
-
 - Only overriden buildings should be used: 
   If the modules would be used with default RepairDepot, 
   than the players vehicle would be repaired instantly without need to wait for holdAction
 
 - The fuel station resource is not taking into account possible fuel 
-  loss while refueling, which is visible with low ammount of fuel
+  loss while refueling, which is visible with low ammount of fuell
