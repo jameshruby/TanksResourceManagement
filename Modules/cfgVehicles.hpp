@@ -57,7 +57,7 @@ class ResourceModulesArea: ResourceModules
 			tooltip = $STR_MaxDuratioDescription;
 			control = "TankResources_maxHoldActonDuration";
 			defaultValue = "30";
-			expression = _this setVariable ["#MaxDuration", _value];
+			expression = _this setVariable ["#MaxDuration", _value, true];
 		};
 
 		class BuildingClass : Edit

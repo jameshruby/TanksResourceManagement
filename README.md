@@ -104,8 +104,6 @@ these function names are looked up and returned as a functions on mission init a
 - Create module class (currently theres no macro) and overwrite ResourcesModuleParams subclass
 
 ## Known issues and current caveats
-
-- HoldActions are currently not displaying in multiplayer
  
 - Current solution is not handling more players in the vehicle, as its build for PvP scenario and will possibly be merged 
   With specific mission: 
