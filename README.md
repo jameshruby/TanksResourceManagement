@@ -1,3 +1,4 @@
+
 # Tank Resource Management Modules
 
 ## About
@@ -7,7 +8,7 @@ in Tanks DLC, it seemed that there was never emphasis on resource management gam
 In Editor, Interactive buildings have no distinction from non-interactive ones, they are 
 not visible in the map, if its not done by mission creator, and they have limited usage.
 
-For iteresting resource management gampeplay we are adressing following:
+For interesting resource management gampeplay we are adressing following:
 
 - To have some vehicle (in this case Kuma MBT) with much less resources, such as fuel, and ammo
   to motivate player replenish these during the scenario
@@ -26,8 +27,7 @@ Usage in TvT mission could be following:
     On the other hand, player is at risk of lossing mission objective, or being eliminated while sitting stationary around fuel pump.
 
 ## Module Usage
-Place the modules in the editor(located under Tanks Resource Management category) and play.
-You can set maximum duration of action which is number of seconds to completely refill given resource
+Place the modules in the editor(located under Tanks Resource Management category) and play. You can set maximum duration of action which is number of seconds to completely refill given resource
 
 ## System Overview
 System contains modules with attached holdAction. These modules are inheriting from  ResourceModulesArea base class. 
@@ -38,53 +38,58 @@ These resources are applied only on players vehicles not the players themselfs.
 ### Hold action parametrization
 Hold action and its functonality is parametrized in two ways:
 
-1) ResourcesModuleParams subclass of given module
-     
-     holdActionMaxProgress = 24; //Number of ticks in hold action. should not be overriden
-     title = "Refuel"; //title of given hold acton 
+1) #### ResourcesModuleParams subclass of given module
+
+``` c
+holdActionMaxProgress = 24; //Number of ticks in hold action. should not be overriden
+title = "Refuel"; //title of given hold acton 
     
-     idleIcon = "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa"; //path to the idle icon
-		 progressIcon = "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa"; //path to the progress icon
+idleIcon = "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa"; //path to the idle icon
+progressIcon = "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa"; //path to the progress icon  
+```   
 
-2) Required module functions
-  ⋅⋅⋅ fn_addResourceFraction ⋅⋅
-
-  >  Description:
-  >  Adds fraction of given resource to target.
-  >  Function runs on every tick of holdAction
-
-  >  !IMPORTANT: Overwrite this function in specifc module, 
-  >  to add desired resource to the target, this function is not to be
-  >  called directly (unless debug). 
-
-  >  Parameter(s):
-  >  _this select 0: OJBECT - players vehicle to which resource is added
-  > _this select 1: NUMBER - ammount of resource to be added, which is retrieved from getResourceFractionAndDuration
+2) #### Required module functions
+   
+    **fnc_addResourceFraction**
+        
+``` sqf  
+    Description:
       
+    Adds fraction of given resource to target.
+    Function runs on every tick of holdAction
+
+    IMPORTANT: Overwrite this function in specifc module, 
+    to add desired resource to the target, this function is not to be
+    called directly (unless debug)
+          
     Returns:
     Nothing
-  
-  ⋅⋅⋅ fn_getResourceFractionAndDuration ⋅⋅
-
-    > Description:
-    > Calculate how much of given resource will be added in holdActon tick, to replenish 
-    > given resource on full progress of holdAction, and how long it will take
-
-    > !IMPORTANT: Overwrite this function in specifc module, 
-    > to add desired resource to the target, this function is not to be
-    > called directly (unless debug). 
-
-    > Parameter(s):
-    > _this select 0: OJBECT - players vehicle for which the resource is calculated
-    > _this select 1: NUMBER - _holdActionProgress - constant(24) number of ticks in holdAction
-    > _this select 2: NUMBER - _holdActionDuration - total duration of holdAction
-      
-    > Returns:
-    > _this select 0: NUMBER - how much of given resource will be added
-    > _this select 1: NUMBER - how long it will take to replenish the resource fully
+```
     
-    > DONT REGISTER THIS FUNCTIONS YOURSELF, USE "RESOURCE_MODULE_FUNCTIONS" MACRO, WITH NAME OF YOUR MODULE CLASS AS A PARAMETER
-    > THIS IS IMPORTANT, BECAUSE THE FUNCTIONS ARE LINKED AUTOMATICALLY WITH GIVEN MODULE
+   **fn_getResourceFractionAndDuration**
+   
+``` sqf
+    Description:
+    
+    Calculate how much of given resource will be added in holdActon tick, to replenish 
+    given resource on full progress of holdAction, and how long it will take
+  
+    !IMPORTANT: Overwrite this function in specifc module, 
+    to add desired resource to the target, this function is not to be
+    called directly (unless debug). 
+
+    Parameter(s):
+    _this select 0: OJBECT - players vehicle for which the resource is calculated
+    _this select 1: NUMBER - _holdActionProgress - constant(24) number of ticks in holdAction
+    _this select 2: NUMBER - _holdActionDuration - total duration of holdAction
+      
+    Returns:
+    _this select 0: NUMBER - how much of given resource will be added
+    _this select 1: NUMBER - how long it will take to replenish the resource fully
+```
+
+**DON'T REGISTER THIS FUNCTIONS YOURSELF, USE *RESOURCE_MODULE_FUNCTIONS* MACRO, WITH NAME OF YOUR MODULE  CLASS AS A PARAMETER.
+THIS IS IMPORTANT, BECAUSE THE FUNCTIONS ARE LINKED AUTOMATICALLY WITH GIVEN MODULE.**
 
 ### Functions linking
 Functions in Arma Function manager are formed from TAG_ and function name itself.
@@ -99,6 +104,7 @@ these function names are looked up and returned as a functions on mission init a
 - Create module class (currently theres no macro) and overwrite ResourcesModuleParams subclass
 
 ## Known issues and current caveats
+
 - HoldActions are currently not displaying in multiplayer
  
 - Current solution is not handling more players in the vehicle, as its build for PvP scenario and will possibly be merged 
@@ -111,9 +117,3 @@ these function names are looked up and returned as a functions on mission init a
 
 - The fuel station resource is not taking into account possible fuel 
   loss while refueling, which is visible with low ammount of fuel
-
-
-
-
-
-
