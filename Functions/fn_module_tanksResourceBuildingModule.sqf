@@ -1,0 +1,41 @@
+/*
+Author: Hrubyjak
+
+Description:
+Module function common for all vehicle resources modules
+*/
+private _mode = param [0,"",[""]];
+private _input = param [1,[],[[]]];
+_module = _input param [0,objNull,[objNull]];
+
+switch _mode do {	
+	case "init": {
+		_isActivated = _input param [1,true,[true]];// _logic = _input param [0,objNull,[objNull]]; // Module logic
+		if (is3DEN) exitWith{};
+		
+		_module call TM_fnc_module_createBuilding;	
+		if (_isActivated) then {	
+			_module call TM_fnc_module_initTanksResourceManagement;
+		};
+	};
+	case "attributesChanged3DEN": {// When some attributes were changed (including position and rotation)
+		//as loading/undoing will hit only this event... 
+		private _initialized = _module getVariable ["#initialized",false];
+		if (!_initialized) then
+		{
+			_module call TM_fnc_module_createBuilding;
+			_module setVariable ["#initialized",true];
+		};	
+		_module call TM_fnc_module_setBuildingDirPos;
+	};
+	case "registeredToWorld3DEN": {// When added to the world (e.g., after undoing and redoing creation)
+		_module call TM_fnc_module_createBuilding;
+	};
+	case "unregisteredFromWorld3DEN": {// When removed from the world (i.e., by deletion or undoing creation)
+		_module call TM_fnc_module_deleteBuilding;
+	};
+	case "dragged3DEN": {// When object is being dragged
+		_module call TM_fnc_module_setBuildingDirPos;
+	};
+};
+true

@@ -1,3 +1,21 @@
+/*
+Author: Hrubyjak
+
+Description:
+Creates trigger on given position which will add the holdAction to given
+player whene activated. Player needs to be effective commmander of vehicle.
+
+Parameter(s):
+_this select 0: ARRAY - trigger position  
+_this select 1: NUMBER - trigger radius 
+_this select 2: ARRAY - 
+	_this select 0:  
+	_this select 1: ARRAY - 
+	
+Returns:
+Nothing
+*/
+
 params["_pos", "_radius", "_actionFncParams"];
 
 private _trigger =	 createTrigger ["EmptyDetector", _pos];

@@ -1,4 +1,4 @@
-params["_moduleName"];
+private _moduleName = _this;
 private _functions = [];
 
 private _functionClasses = "true" configClasses (configFile >> "CfgFunctions" >> "TanksResourceBase" >> "ResourceFunctions");

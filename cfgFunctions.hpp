@@ -10,9 +10,13 @@ class CfgFunctions
 			file = "A3\TanksResourceManagement\Functions";
 			class createLocationMarkerIcon;
 			class createMapEditorBuilding;
+			class loadResourceSpecificParams;
 
-			class moduleCreateBuilding;
-			class tanksResourceBuildingModule;
+			class module_createBuilding;
+			class module_deleteBuilding;
+			class module_initTanksResourceManagement;
+			class module_tanksResourceBuildingModule;
+			
 			class createTriggerFunctionAction;
 			class addResourceAction;
 

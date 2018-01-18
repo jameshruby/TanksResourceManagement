@@ -1,7 +1,8 @@
 private _object = _this select 0;
 private _actionFncParams = _this select 1;
 
-_actionFncParams params["_title", "_maxDuration","_holdActionMaxProgress", "_functionParams", "_iconParams"];
+_actionFncParams params["_title", "_durationParams", "_functionParams", "_iconParams"];
+_durationParams params ["_maxDuration","_holdActionMaxProgress"];
 _functionParams params["_getResourceFractionAndDuration", "_addResourceFraction"];
 _iconParams params["_idleIcon", "_progressIcon"];
 
@@ -9,8 +10,6 @@ private _actionId = -1;
 
 private _durationParams = [_object, _holdActionMaxProgress, _maxDuration] call _getResourceFractionAndDuration;
 _durationParams params["_resourceFraction", "_holdActionDuration"];
-
-//if (_missingFuel == 0) exitWith {-1;};
 
 _actionId = [
 	_object,             // Object the action is attached to

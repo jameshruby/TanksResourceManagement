@@ -30,7 +30,7 @@ class ResourceModulesArea: ResourceModules
 	canSetAreaHeight = 0;
 	canSetAreaShape = 0;
 	
-	function = "TM_fnc_tanksResourceBuildingModule";			
+	function = "TM_fnc_module_tanksResourceBuildingModule";			
 
 	class ResourcesModuleParams//mod specific
 	{	

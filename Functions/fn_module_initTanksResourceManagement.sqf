@@ -1,0 +1,3 @@
+private _module = _this;
+private _resourceSpecificParams = _module call TM_fnc_loadResourceSpecificParams;
+_resourceSpecificParams call TM_fnc_createTriggerFunctionAction;
