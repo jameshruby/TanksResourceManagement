@@ -16,6 +16,7 @@ class CfgFunctions
 			class module_deleteBuilding;
 			class module_initTanksResourceManagement;
 			class module_tanksResourceBuildingModule;
+			class module_setBuildingDirPos;
 			
 			class createTriggerFunctionAction;
 			class addResourceAction;
