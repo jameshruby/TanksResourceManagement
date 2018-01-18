@@ -35,7 +35,6 @@ class Cfg3DEN
 				class Edit;
 			};
 		};
-
-		#include "Modules\attributes.hpp"
+		#include "CustomAttributes\attributes.hpp"
 	};
 };

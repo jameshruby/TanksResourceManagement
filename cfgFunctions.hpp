@@ -27,8 +27,16 @@ class CfgFunctions
 
 			class baseFunctionException;
 		};
-	};
 	
+		class CustomAttributes
+		{
+			file = "A3\TanksResourceManagement\CustomAttributes";
+			class getClassAtributes;
+			class getAllCfgMarkerAttributes;
+			class loadClassAttributes;
+		};
+	};
+
 	//////////////// Module Functions ////////////////////////////////////
 	
 	class TanksResourceBase

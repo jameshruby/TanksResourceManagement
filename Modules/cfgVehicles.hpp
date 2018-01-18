@@ -76,12 +76,13 @@ class ResourceModulesArea: ResourceModules
 			expression = _this setVariable ["#DrawBuildingMarkerIcon", _value];
 		};		
 
-		class BuildingMarker : Edit
+		class BuildingMarker 
 		{
 			property = "#BuildingMarker";
 			typeName = "String";
 			displayName = $STR_TM_AttrributeBuildingMarker;
 			expression = _this setVariable ["#BuildingMarker", _value];
+			control = "CfgMarkerType";
 		};		
 
 		class ModuleDescription: ModuleDescription{};
