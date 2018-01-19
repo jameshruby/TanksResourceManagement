@@ -5,4 +5,4 @@ private _pos = getPos _module;
 private _direction = direction _module;
 
 _building setDir _direction;	
-_building setPos _pos;	
+_building setPosATL _pos;	
