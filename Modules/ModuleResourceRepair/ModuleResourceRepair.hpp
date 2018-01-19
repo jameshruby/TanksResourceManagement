@@ -14,11 +14,12 @@ class ModuleResourceRepair : ResourceModulesArea
 	class Attributes: Attributes
 	{
 		class MaxDuration : MaxDuration{};
-
-		class BuildingClass : BuildingClass
+		
+		class BuildingType: BuildingType
 		{
-			defaultValue = """Land_RepairDepot_01_civ_F_NoFunction""";
-		};		
+			control = "RepairDepotType";
+			defaultValue = """Land_RepairDepot_01_Green_F_NoFunction""";
+		};
 
 		class DrawBuildingMarkerIcon: DrawBuildingMarkerIcon{};
 

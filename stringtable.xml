@@ -32,16 +32,13 @@
         <Original>Huron Ammo Container (No function)</Original>
       </Key>
       <Key ID="STR_TM_BuildingClassDisplayName">
-        <Original>Building class name</Original>
+        <Original>Building type</Original>
       </Key>
       <Key ID="STR_TM_BuildingMarkerDisplayName">
         <Original>Building marker icon name</Original>
       </Key>
      <Key ID="STR_TM_FunctionToExecute">
           <Original>Function to execute</Original>
-      </Key>
-      <Key ID="STR_TM_AttrributeBuildingClass">
-          <Original>Building class</Original>
       </Key>
       <Key ID="STR_TM_AttrributeDrawBuildingMarkerIcon">
           <Original>Draw building marker icon</Original>

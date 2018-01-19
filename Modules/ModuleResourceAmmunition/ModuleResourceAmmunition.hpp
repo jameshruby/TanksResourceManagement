@@ -15,8 +15,9 @@
 		{
 			class MaxDuration : MaxDuration{};
 
-			class BuildingClass : BuildingClass
+			class BuildingType: BuildingType
 			{
+				control = "AmmunutionDepotType";
 				defaultValue = """B_Slingload_01_Ammo_F_NoFunction""";
 			};
 

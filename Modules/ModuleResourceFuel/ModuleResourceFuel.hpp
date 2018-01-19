@@ -14,11 +14,12 @@ class ModuleResourceFuel : ResourceModulesArea
 	class Attributes: Attributes
 	{
 		class MaxDuration : MaxDuration{};
-		
-		class BuildingClass : BuildingClass
+
+		class BuildingType: BuildingType
 		{
+			control = "FuelDepotType";
 			defaultValue = """Land_fs_roof_F""";
-		};		
+		};
 
 		class DrawBuildingMarkerIcon: DrawBuildingMarkerIcon{};
 

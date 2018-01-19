@@ -35,6 +35,7 @@ class CfgFunctions
 			class getClassAtributes;
 			class getAllCfgMarkerAttributes;
 			class loadClassAttributes;
+			class getAllCfgVehiclesAttributes;
 		};
 	};
 
