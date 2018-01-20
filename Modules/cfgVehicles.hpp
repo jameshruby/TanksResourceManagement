@@ -59,7 +59,15 @@ class ResourceModulesArea: ResourceModules
 			defaultValue = "30";
 			expression = _this setVariable ["#MaxDuration", _value, true];
 		};
-	
+
+		class CreateBuilding : Checkbox
+		{
+			property = "#CreateBuilding";
+			displayName = $STR_TM_CreateBuilding;
+			defaultValue = "true";
+			expression = _this setVariable ["#CreateBuilding", _value];
+		};		
+
 		class BuildingType 
 		{
 			property = "#BuildingClass";
@@ -67,7 +75,7 @@ class ResourceModulesArea: ResourceModules
 			displayName = $STR_TM_BuildingClassDisplayName;
 			expression = _this setVariable ["#BuildingClass", _value];
 		};
-		
+	
 		class DrawBuildingMarkerIcon : Checkbox
 		{
 			property = "#DrawBuildingMarkerIcon";

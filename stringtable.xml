@@ -40,6 +40,9 @@
      <Key ID="STR_TM_FunctionToExecute">
           <Original>Function to execute</Original>
       </Key>
+      <Key ID="STR_TM_CreateBuilding">
+          <Original>Create Building</Original>
+      </Key>
       <Key ID="STR_TM_AttrributeDrawBuildingMarkerIcon">
           <Original>Draw building marker icon</Original>
       </Key>

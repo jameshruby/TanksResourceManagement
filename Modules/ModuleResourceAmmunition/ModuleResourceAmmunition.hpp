@@ -14,7 +14,7 @@
 		class Attributes: Attributes
 		{
 			class MaxDuration : MaxDuration{};
-
+			class CreateBuilding : CreateBuilding{};
 			class BuildingType: BuildingType
 			{
 				control = "AmmunutionDepotType";

@@ -13,7 +13,9 @@ switch _mode do {
 		_isActivated = _input param [1,true,[true]];// _logic = _input param [0,objNull,[objNull]]; // Module logic
 		if (is3DEN) exitWith{};
 		
-		_module call TM_fnc_module_createBuilding;	
+		if (_module getVariable "#CreateBuilding") then {
+			_module call TM_fnc_module_createBuilding;	
+		};		
 		if (_isActivated) then {	
 			_module call TM_fnc_module_initTanksResourceManagement;
 		};
@@ -23,17 +25,26 @@ switch _mode do {
 		if (!isNull (_module getVariable ["#building", objNull])) then {
 			_module call TM_fnc_module_deleteBuilding; 
 		};
-		_module call TM_fnc_module_createBuilding;
-		_module call TM_fnc_module_setBuildingDirPos;
+		if (_module getVariable "#CreateBuilding") then {
+			_module call TM_fnc_module_createBuilding;
+			_module call TM_fnc_module_setBuildingDirPos;
+		};
 	};
 	case "registeredToWorld3DEN": {// When added to the world (e.g., after undoing and redoing creation)
 		_module call TM_fnc_module_createBuilding;
 	};
 	case "unregisteredFromWorld3DEN": {// When removed from the world (i.e., by deletion or undoing creation)
-		_module call TM_fnc_module_deleteBuilding;
+		if (_module getVariable "#CreateBuilding") then {
+			_module call TM_fnc_module_deleteBuilding;
+		};
 	};
 	case "dragged3DEN": {// When object is being dragged
-		_module call TM_fnc_module_setBuildingDirPos;
+		if (_module getVariable "#CreateBuilding") then {
+			_module call TM_fnc_module_setBuildingDirPos;
+		};
 	};
 };
 true
+
+
+ 
