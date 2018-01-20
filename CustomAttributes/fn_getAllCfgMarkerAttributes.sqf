@@ -1,5 +1,9 @@
+private _configCondition = _this;
+if (isNil "_configCondition") then {
+	_configCondition = "true";
+};
+
 private _configName = "cfgMarkers";
-private _configCondition = "true";
 private _displayNameParam = "name";
 private _iconParam = "icon";
 

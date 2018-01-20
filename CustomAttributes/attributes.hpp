@@ -34,7 +34,7 @@ class CfgMarkerType: Combo
 		{
 			onload = "\
 				_control = _this select 0;\
-				_cparams = [] call TM_fnc_getAllCfgMarkerAttributes;\
+				_cparams = '!IsNull (_x >> ''markerClass'')' call TM_fnc_getAllCfgMarkerAttributes;\
 				[_cparams, _control]  call TM_fnc_loadClassAttributes;\
 			";
 		};
