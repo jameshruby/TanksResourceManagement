@@ -43,4 +43,3 @@ private _resourceSpecificFunctions = _moduleName call TM_fnc_getResourceModuleFu
 		[_idleIcon, _progressIcon]
 	]
 ]
- 

@@ -29,5 +29,3 @@ if (_drawBuildingMarkerIcon) then {
 	private _bMarker = [_building, _buildingMarker] call TM_fnc_createLocationMarkerIcon;
 	_module setVariable ["#buildingMarker", _bMarker];
 };
-
-
