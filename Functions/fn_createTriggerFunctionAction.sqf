@@ -24,8 +24,4 @@ _trigger setTriggerStatements [
 	"this && vehicle player != player && player == effectiveCommander vehicle player && vehicle player in thisList", 	 
 	format["_actionId = [vehicle player, %1] call TM_fnc_addResourceAction; vehicle player setVariable['actionId', _actionId]",  _actionFncParams], //vehicle player setFuel 1 ((Fuel _target) + 0.2)    [] spawn TM_fnc_zone_room_in   vehicle player call TM_fnc_resourceRefuel;
 	"[vehicle player, ((vehicle player) getVariable 'actionId')] call BIS_fnc_holdActionRemove"
-]; 
-
-
-
-
+];
