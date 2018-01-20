@@ -78,10 +78,10 @@ class ResourceModulesArea: ResourceModules
 
 		class BuildingMarker 
 		{
-			property = "#BuildingMarker";
+			property = "#BuildingMarkerClass";
 			typeName = "String";
 			displayName = $STR_TM_AttrributeBuildingMarker;
-			expression = _this setVariable ["#BuildingMarker", _value];
+			expression = _this setVariable ["#BuildingMarkerClass", _value];
 			control = "CfgMarkerType";
 		};		
 

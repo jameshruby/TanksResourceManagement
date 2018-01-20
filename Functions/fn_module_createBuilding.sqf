@@ -18,7 +18,7 @@ private _module = _this;
 
 private _pos = getPos _module;	
 private _direction = direction _module;
-private _buildingMarker = _module getVariable "#BuildingMarker";
+private _buildingMarker = _module getVariable "#BuildingMarkerClass";
 private _buildingClass = _module getVariable "#BuildingClass";
 private _drawBuildingMarkerIcon = _module getVariable "#DrawBuildingMarkerIcon";
 
