@@ -1,3 +1,21 @@
+/*
+Author: Hrubyjak
+
+Description:
+Forms resource action parameters
+Some of these are taken from the module itself, others are loaded from the ResourcesModuleParams
+subclass of given module
+
+The parameteres are passed to trigger, and subsequently to hold action itself
+
+Parameter(s):
+_this: OBJECT - module for which you want to load the parameters 
+	
+Returns:
+ARRAY - the resource function parameters
+
+*/
+
 private _module = _this;
 
 private _moduleName = typeof _module;

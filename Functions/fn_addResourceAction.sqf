@@ -1,3 +1,17 @@
+/*
+Author: Hrubyjak
+
+Description:
+Adds the resource action which is specilized form of hold action
+
+Parameter(s):
+_this select 0: OBJECT - the target on which the hold action is added
+_this select 1: ARRAY - the hold action parameters
+	
+Returns:
+NUMBER - action ID
+*/
+
 private _object = _this select 0;
 private _actionFncParams = _this select 1;
 

@@ -1,3 +1,17 @@
+/*
+Author: Hrubyjak
+
+Description:
+Creates module building and its map marker if selected, 
+module position and direction is used for building placement
+
+Parameter(s):
+_this: OBJECT - resource action module
+
+Returns:
+Nothing
+*/
+
 if (!isServer) exitWith{}; //we dont want each client to create a building
 
 private _module = _this; 

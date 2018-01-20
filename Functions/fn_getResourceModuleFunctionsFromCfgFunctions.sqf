@@ -1,3 +1,16 @@
+/*
+Author: Hrubyjak
+
+Description:
+Loads module functions
+
+Parameter(s):
+_this: STRING - module name
+
+Returns:
+ARRAY of functions 
+*/
+
 private _moduleName = _this;
 private _functions = [];
 
