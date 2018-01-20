@@ -32,7 +32,7 @@ private _holdActionMaxProgress = getNumber(_resourcesModuleParams >> "holdAction
 private _idleIcon = getText(_resourcesModuleParams >> "idleIcon");
 private _progressIcon = getText(_resourcesModuleParams >> "progressIcon");
 
-private _resourceSpecificFunctions = _moduleName call TM_fnc_getResourceModuleFunctionsFromCfgFunctions;	
+private _resourceSpecificFunctions = _moduleName call TM_fnc_getResourceModuleFunctions;	
 
 [
 	_pos, _radius,
