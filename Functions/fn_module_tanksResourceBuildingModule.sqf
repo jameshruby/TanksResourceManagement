@@ -19,13 +19,11 @@ switch _mode do {
 		};
 	};
 	case "attributesChanged3DEN": {// When some attributes were changed (including position and rotation)
-		//as loading/undoing will hit only this event... 
-		private _initialized = _module getVariable ["#initialized",false];
-		if (!_initialized) then
-		{
-			_module call TM_fnc_module_createBuilding;
-			_module setVariable ["#initialized",true];
-		};	
+		//we need to recreate the building each time in case that building type is changed 
+		if (!isNull (_module getVariable ["#building", objNull])) then {
+			_module call TM_fnc_module_deleteBuilding; 
+		};
+		_module call TM_fnc_module_createBuilding;
 		_module call TM_fnc_module_setBuildingDirPos;
 	};
 	case "registeredToWorld3DEN": {// When added to the world (e.g., after undoing and redoing creation)
