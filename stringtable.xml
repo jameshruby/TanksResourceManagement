@@ -7,6 +7,12 @@
       <Key ID="STR_TM_KumaDisplayName">
         <Original>MBT-52 Kuma (LowResources)</Original>
       </Key>
+      <Key ID="STR_TM_KumasMoreFuelDisplayName">
+        <Original>MBT-52 Kuma (LowResources - more fuel)</Original>
+      </Key>
+      <Key ID="STR_TM_KumaLowMediumDisplayName">
+        <Original>MBT-52 Kuma (LowMediumResources)</Original>
+      </Key>
       <Key ID="STR_TM_RepairDepotCivilianDisplayName">
         <Original>Repair Depot (Civilian - No function)</Original>
       </Key>

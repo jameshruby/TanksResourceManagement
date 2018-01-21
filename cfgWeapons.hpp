@@ -9,6 +9,7 @@ class cfgWeapons
             28Rnd_120mm_APFSDS_shells_Tracer_Green, 
             28Rnd_120mm_APFSDS_shells_Tracer_Yellow,        
             //CUSTOM
+            18Rnd_120mm_APFSDS_shells_Tracer_Yellow,
             12Rnd_120mm_APFSDS_shells_Tracer_Yellow, 
             10Rnd_120mm_APFSDS_shells_Tracer_Yellow,
             8Rnd_120mm_APFSDS_shells_Tracer_Yellow, 
@@ -45,6 +46,8 @@ class cfgWeapons
 			1000Rnd_762x51_Belt_T_Red,1000Rnd_762x51_Belt_T_Green,1000Rnd_762x51_Belt_T_Yellow,
 			2000Rnd_762x51_Belt_T_Red,2000Rnd_762x51_Belt_T_Green,2000Rnd_762x51_Belt_T_Yellow,
             //CUSTOM
+            500Rnd_762x51_Belt_Yellow,
+            300Rnd_762x51_Belt_Yellow,
             100Rnd_762x51_Belt_Yellow,
             80Rnd_762x51_Belt_Yellow,
             60Rnd_762x51_Belt_Yellow
