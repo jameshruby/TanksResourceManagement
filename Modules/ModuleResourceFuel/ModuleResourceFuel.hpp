@@ -9,18 +9,15 @@ class ModuleResourceFuel : ResourceModulesArea
 		title = $STR_TM_HoldAction_refuel;
 		progressIcon = "A3\TanksResourceManagement\Img\holdAction_refuel_CA.paa"; 
 		idleIcon =  "A3\TanksResourceManagement\Img\holdAction_refuel_CA.paa"; 
+		cfgVehiclesQuery = "(configName _x find 'Land_fs') == 0";
 	};
 	
 	class Attributes: Attributes
 	{
 		class MaxDuration : MaxDuration{};
-		class CreateBuilding : CreateBuilding
-		{
-			control = "CheckBox_FuelDepotType";
-		};
+		class CreateBuilding : CreateBuilding{};
 		class BuildingType: BuildingType
 		{
-			control = "FuelDepotType";
 			defaultValue = """Land_fs_roof_F""";
 		};
 

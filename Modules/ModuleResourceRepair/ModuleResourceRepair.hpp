@@ -8,19 +8,16 @@ class ModuleResourceRepair : ResourceModulesArea
 	{
 		title = $STR_TM_HoldAction_repair;
 		progressIcon = "A3\TanksResourceManagement\Img\holdAction_repair_CA.paa";
-		idleIcon = "A3\TanksResourceManagement\Img\holdAction_repair_CA.paa";
+		idleIcon = "A3\TanksResourceManagement\Img\holdAction_repair_CA.paa"; 
+		cfgVehiclesQuery = "configName _x isKindOf('Land_RepairDepot_01_base_F') && getNumber (_x >> 'transportRepair') == 0"; //buildingType
 	};
 
 	class Attributes: Attributes
 	{
 		class MaxDuration : MaxDuration{};
-		class CreateBuilding : CreateBuilding
-		{
-			control = "CheckBox_RepairDepotType";
-		};
+		class CreateBuilding : CreateBuilding{};
 		class BuildingType: BuildingType
 		{
-			control = "RepairDepotType";
 			defaultValue = """Land_RepairDepot_01_Green_F_NoFunction""";
 		};
 

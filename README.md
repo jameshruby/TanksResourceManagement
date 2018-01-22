@@ -51,6 +51,7 @@ Hold action and its functonality is parametrized in two ways:
         
     idleIcon = "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa"; //path to the idle icon
     progressIcon = "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa"; //path to the progress icon  
+    cfgVehiclesQuery = "configName _x isKindOf('Land_RepairDepot_01_base_F')" //query to cfgVehicles which basically is same as condition for configClasses command
     ```   
 
 2) #### Required module functions

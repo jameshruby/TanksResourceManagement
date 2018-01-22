@@ -41,7 +41,7 @@ class CfgMarkerType: Combo
 	};
 };
 
-class RepairDepotType: Combo
+class BuildingType: Combo
 {
 	class Controls: Controls
 	{
@@ -50,39 +50,7 @@ class RepairDepotType: Combo
 		{
 			onload = "\
 				_control = _this select 0;\
-				_cparams = 'configName _x isKindOf(''Land_RepairDepot_01_base_F'') && getNumber (_x >> ''transportRepair'') == 0' call TM_fnc_getAllCfgVehiclesAttributes;\
-				[_cparams, _control]  call TM_fnc_loadClassAttributes;\
-			";
-		};
-	};
-};
-
-class AmmunutionDepotType: Combo
-{
-	class Controls: Controls
-	{
-		class Title: Title{};
-		class Value: Value
-		{
-			onload = "\
-				_control = _this select 0;\
-				_cparams = 'configName _x isKindOf(''B_Slingload_01_Ammo_F'') && getNumber (_x >> ''transportAmmo'') == 0' call TM_fnc_getAllCfgVehiclesAttributes;\
-				[_cparams, _control]  call TM_fnc_loadClassAttributes;\
-			";
-		};
-	};
-};
-
-class FuelDepotType: Combo
-{
-	class Controls: Controls
-	{
-		class Title: Title{};
-		class Value: Value
-		{
-			onload = "\
-				_control = _this select 0;\
-				_cparams = '(configName _x find ''Land_fs'') == 0' call TM_fnc_getAllCfgVehiclesAttributes;\
+				_cparams = [] call TM_fnc_getResourceBuildingAttributes;\
 				[_cparams, _control]  call TM_fnc_loadClassAttributes;\
 			";
 		};
@@ -90,39 +58,15 @@ class FuelDepotType: Combo
 };
 
 
-class CheckBox_RepairDepotType: Checkbox
+class CheckBox_BuildingType: Checkbox
 {
 	class Controls: Controls
 	{
 		class Title: Title{};
 		class Value: Value
 		{
-			onLoad = "[_this select 0, 'RepairDepotType'] spawn TM_fnc_controlDisablingOtherControl_load;";
-			onCheckedChanged = "[_this select 0, 'RepairDepotType'] call TM_fnc_controlDisablingOtherControl;";
-		};
-	};
-};
-class CheckBox_AmmunutionDepotType: Checkbox
-{
-	class Controls: Controls
-	{
-		class Title: Title{};
-		class Value: Value
-		{
-			onLoad = "[_this select 0, 'AmmunutionDepotType'] spawn TM_fnc_controlDisablingOtherControl_load;";
-			onCheckedChanged = "[_this select 0, 'AmmunutionDepotType'] call TM_fnc_controlDisablingOtherControl;";
-		};
-	};
-};
-class CheckBox_FuelDepotType: Checkbox
-{
-	class Controls: Controls
-	{
-		class Title: Title{};
-		class Value: Value
-		{
-			onLoad = "[_this select 0, 'FuelDepotType'] spawn TM_fnc_controlDisablingOtherControl_load;";
-			onCheckedChanged = "[_this select 0, 'FuelDepotType'] call TM_fnc_controlDisablingOtherControl;";
+			onLoad = "[_this select 0, 'BuildingType'] spawn TM_fnc_controlDisablingOtherControl_load;";
+			onCheckedChanged = "[_this select 0, 'BuildingType'] call TM_fnc_controlDisablingOtherControl;";
 		};
 	};
 };

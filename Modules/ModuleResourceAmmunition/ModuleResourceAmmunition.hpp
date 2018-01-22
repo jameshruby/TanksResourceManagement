@@ -9,18 +9,15 @@
 			title = $STR_TM_HoldAction_rearm;
 			progressIcon = "A3\TanksResourceManagement\Img\holdAction_rearm_CA.paa";
 			idleIcon =  "A3\TanksResourceManagement\Img\holdAction_rearm_CA.paa";
+			cfgVehiclesQuery = "configName _x isKindOf('B_Slingload_01_Ammo_F') && getNumber (_x >> 'transportAmmo') == 0";
 		};
 
 		class Attributes: Attributes
 		{
 			class MaxDuration : MaxDuration{};
-			class CreateBuilding : CreateBuilding
-			{
-				control = "CheckBox_AmmunutionDepotType";
-			};
+			class CreateBuilding : CreateBuilding{};
 			class BuildingType: BuildingType
 			{
-				control = "AmmunutionDepotType";
 				defaultValue = """B_Slingload_01_Ammo_F_NoFunction""";
 			};
 

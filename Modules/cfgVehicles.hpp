@@ -64,7 +64,7 @@ class ResourceModulesArea: ResourceModules
 		{
 			property = "#CreateBuilding";
 			displayName = $STR_TM_CreateBuilding;
-			control = "CheckBox_CreateBulding";
+			control = "CheckBox_BuildingType";
 			defaultValue = "true";
 			expression = _this setVariable ["#CreateBuilding", _value];
 		};		
@@ -73,6 +73,7 @@ class ResourceModulesArea: ResourceModules
 		{
 			property = "#BuildingClass";
 			typeName = "String";
+			control = "BuildingType";
 			displayName = $STR_TM_BuildingClassDisplayName;
 			expression = _this setVariable ["#BuildingClass", _value];
 		};
