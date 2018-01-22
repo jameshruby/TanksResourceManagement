@@ -11,6 +11,8 @@ _module = _input param [0,objNull,[objNull]];
 switch _mode do {	
 	case "init": {
 		_isActivated = _input param [1,true,[true]];// _logic = _input param [0,objNull,[objNull]]; // Module logic
+		[] call TM_fnc_module_loadLocalFunctions;
+		
 		if (is3DEN) exitWith{};
 		
 		if (_module getVariable "#CreateBuilding") then {
@@ -45,6 +47,3 @@ switch _mode do {
 	};
 };
 true
-
-
- 
