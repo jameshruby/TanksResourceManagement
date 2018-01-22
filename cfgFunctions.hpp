@@ -19,6 +19,9 @@ class CfgFunctions
 			class getAllCfgMarkerAttributes;
 			class loadClassAttributes;
 			class getAllCfgVehiclesAttributes;
+		
+			class controlDisablingOtherControl_load;
+			class controlDisablingOtherControl;
 		};
 	};
 };

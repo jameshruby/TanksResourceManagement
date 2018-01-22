@@ -14,7 +14,10 @@ class ModuleResourceFuel : ResourceModulesArea
 	class Attributes: Attributes
 	{
 		class MaxDuration : MaxDuration{};
-		class CreateBuilding : CreateBuilding{};
+		class CreateBuilding : CreateBuilding
+		{
+			control = "CheckBox_FuelDepotType";
+		};
 		class BuildingType: BuildingType
 		{
 			control = "FuelDepotType";

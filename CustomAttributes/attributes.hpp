@@ -41,7 +41,6 @@ class CfgMarkerType: Combo
 	};
 };
 
-
 class RepairDepotType: Combo
 {
 	class Controls: Controls
@@ -89,3 +88,55 @@ class FuelDepotType: Combo
 		};
 	};
 };
+
+
+class CheckBox_RepairDepotType: Checkbox
+{
+	class Controls: Controls
+	{
+		class Title: Title{};
+		class Value: Value
+		{
+			onLoad = "[_this select 0, 'RepairDepotType'] spawn TM_fnc_controlDisablingOtherControl_load;";
+			onCheckedChanged = "[_this select 0, 'RepairDepotType'] call TM_fnc_controlDisablingOtherControl;";
+		};
+	};
+};
+class CheckBox_AmmunutionDepotType: Checkbox
+{
+	class Controls: Controls
+	{
+		class Title: Title{};
+		class Value: Value
+		{
+			onLoad = "[_this select 0, 'AmmunutionDepotType'] spawn TM_fnc_controlDisablingOtherControl_load;";
+			onCheckedChanged = "[_this select 0, 'AmmunutionDepotType'] call TM_fnc_controlDisablingOtherControl;";
+		};
+	};
+};
+class CheckBox_FuelDepotType: Checkbox
+{
+	class Controls: Controls
+	{
+		class Title: Title{};
+		class Value: Value
+		{
+			onLoad = "[_this select 0, 'FuelDepotType'] spawn TM_fnc_controlDisablingOtherControl_load;";
+			onCheckedChanged = "[_this select 0, 'FuelDepotType'] call TM_fnc_controlDisablingOtherControl;";
+		};
+	};
+};
+
+class CheckBox_CreateMarker: Checkbox
+{
+	class Controls: Controls
+	{
+		class Title: Title{};
+		class Value: Value
+		{
+			onLoad = "[_this select 0, 'CfgMarkerType'] spawn TM_fnc_controlDisablingOtherControl_load;";
+			onCheckedChanged = "[_this select 0, 'CfgMarkerType'] call TM_fnc_controlDisablingOtherControl;";
+		};
+	};
+};
+

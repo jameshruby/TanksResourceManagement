@@ -35,6 +35,14 @@ class Cfg3DEN
 				class Edit;
 			};
 		};
+		class Checkbox: Title
+		{
+			class Controls
+			{
+				class Title;
+				class Value;
+			};
+		};
 		#include "CustomAttributes\attributes.hpp"
 	};
 };

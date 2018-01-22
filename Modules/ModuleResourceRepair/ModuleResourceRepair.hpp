@@ -14,7 +14,10 @@ class ModuleResourceRepair : ResourceModulesArea
 	class Attributes: Attributes
 	{
 		class MaxDuration : MaxDuration{};
-		class CreateBuilding : CreateBuilding{};
+		class CreateBuilding : CreateBuilding
+		{
+			control = "CheckBox_RepairDepotType";
+		};
 		class BuildingType: BuildingType
 		{
 			control = "RepairDepotType";

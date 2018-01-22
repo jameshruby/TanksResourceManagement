@@ -14,7 +14,10 @@
 		class Attributes: Attributes
 		{
 			class MaxDuration : MaxDuration{};
-			class CreateBuilding : CreateBuilding{};
+			class CreateBuilding : CreateBuilding
+			{
+				control = "CheckBox_AmmunutionDepotType";
+			};
 			class BuildingType: BuildingType
 			{
 				control = "AmmunutionDepotType";
