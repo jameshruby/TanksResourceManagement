@@ -10,23 +10,33 @@ _module = _input param [0,objNull,[objNull]];
 
 switch _mode do {	
 	case "init": {
-		_isActivated = _input param [1,true,[true]];// _logic = _input param [0,objNull,[objNull]]; // Module logic
-		[] call TM_fnc_module_loadLocalFunctions;
-		
+		_isActivated = _input param [1,true,[true]];
 		if (is3DEN) exitWith{};
-		
+		[] call TM_fnc_module_loadLocalFunctions;
+
 		if (_module getVariable "#CreateBuilding") then {
 			_module call TM_fnc_module_createBuilding;	
 		};		
 		if (_isActivated) then {	
-			_module call TM_fnc_module_initTanksResourceManagement;
+			_module call TM_fnc_module_initTanksResourceManagement;	
 		};
 	};
 	case "attributesChanged3DEN": {// When some attributes were changed (including position and rotation)
+		private _initializedTwice = _module getVariable ["#_initializedTwice", false];	
+		private _initialized = _module getVariable ["#initialized",false];
+		if (!_initialized || _initializedTwice) then
+		{
+			[] call TM_fnc_module_loadLocalFunctions;
+			_module setVariable ["#initialized", true];
+			_module setVariable ["#_initializedTwice",false]; 		
+		};	
+		_module setVariable ["#_initializedTwice",true];		
+		
 		//we need to recreate the building each time in case that building type is changed 
 		if (!isNull (_module getVariable ["#building", objNull])) then {
 			_module call TM_fnc_module_deleteBuilding; 
 		};
+
 		if (_module getVariable "#CreateBuilding") then {
 			_module call TM_fnc_module_createBuilding;
 			_module call TM_fnc_module_setBuildingDirPos;
