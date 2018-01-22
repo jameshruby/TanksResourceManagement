@@ -58,13 +58,14 @@
       <Key ID="STR_MaxDurationDisplayName">
           <Original>Max. duration</Original>
       </Key>
-   </Container>
-    <Container name="DisplayNames">
-      <Key ID="STR_MaxDuratioDescription">
-        <Original>
-            Number of seconds action it will take to replenish 100% of resource
-        </Original>
+       <Key ID="STR_TM_RepairStationMarkerDisplayName">
+          <Original>Repair Station</Original>
       </Key>
+       <Key ID="STR_TM_RearmStationMarkerDisplayName">
+          <Original>Rearm Station</Original>
+      </Key>
+   </Container>
+    <Container name="ModuleDescriptions">
       <Key ID="STR_TM_ResourceAmmunitionDescription">
         <Original>
             Module creates building representing ammunution cargo in editor, and attaches holdAction which will gradually add ammo for all vehicle turrets when players vehicle is in radius of the module size.
@@ -79,6 +80,33 @@
         <Original>
             Module creates building representing repair station in editor, and attaches holdAction which will gradually repair vehicle when players vehicle is in radius of the module size.
          </Original>
+      </Key>
+    </Container>
+    <Container name="Tooltips">
+     <Key ID="STR_MaxDurationTooltip">
+        <Original>
+            Number of seconds action it will take to replenish 100% of resource
+        </Original>
+      </Key>
+      <Key ID="STR_TM_ResourceCreateBuildingTooltip">
+        <Original>
+            If unchecked, module building will not be spawned, which is useful when you want to use the module for existing map objects
+        </Original>
+      </Key>
+      <Key ID="STR_TM_ResourceCreateBuildingMarkerIconTooltip">
+        <Original>
+            If unchecked, the marker icon which simulates regular map object icon will not be created, which is useful when you want to use the module for existing map object with regular map icon 
+        </Original>
+      </Key>
+      <Key ID="STR_TM_BuildingTypeTooltip">
+        <Original>
+           Avialable building types which are representative for given resource
+        </Original>
+      </Key>
+      <Key ID="STR_TM_ResourceBuildingMarkerTooltip">
+        <Original>
+            Marker class used for marker icon, if you want to add custom icon, configure it as cfgMarkers
+        </Original>
       </Key>
     </Container>
     <Container name="HoldActionTitles">

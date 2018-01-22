@@ -54,7 +54,7 @@ class ResourceModulesArea: ResourceModules
 		{
 			property = "#MaxDuration";
 			displayName = $STR_MaxDurationDisplayName;
-			tooltip = $STR_MaxDuratioDescription;
+			tooltip = $STR_MaxDurationTooltip;
 			control = "TankResources_maxHoldActonDuration";
 			defaultValue = "30";
 			expression = _this setVariable ["#MaxDuration", _value, true];
@@ -64,6 +64,7 @@ class ResourceModulesArea: ResourceModules
 		{
 			property = "#CreateBuilding";
 			displayName = $STR_TM_CreateBuilding;
+			tooltip = $STR_TM_ResourceCreateBuildingTooltip;
 			control = "CheckBox_BuildingType";
 			defaultValue = "true";
 			expression = _this setVariable ["#CreateBuilding", _value];
@@ -74,6 +75,7 @@ class ResourceModulesArea: ResourceModules
 			property = "#BuildingClass";
 			typeName = "String";
 			control = "BuildingType";
+			tooltip = $STR_TM_BuildingTypeTooltip;
 			displayName = $STR_TM_BuildingClassDisplayName;
 			expression = _this setVariable ["#BuildingClass", _value];
 		};
@@ -82,6 +84,7 @@ class ResourceModulesArea: ResourceModules
 		{
 			property = "#DrawBuildingMarkerIcon";
 			displayName = $STR_TM_AttrributeDrawBuildingMarkerIcon;
+			tooltip = $STR_TM_ResourceCreateBuildingMarkerIconTooltip;
 			control = "CheckBox_CreateMarker";
 			defaultValue = "true";
 			expression = _this setVariable ["#DrawBuildingMarkerIcon", _value];
@@ -91,6 +94,7 @@ class ResourceModulesArea: ResourceModules
 		{
 			property = "#BuildingMarkerClass";
 			typeName = "String";
+			tooltip = $STR_TM_ResourceBuildingMarkerTooltip;
 			displayName = $STR_TM_AttrributeBuildingMarker;
 			expression = _this setVariable ["#BuildingMarkerClass", _value];
 			control = "CfgMarkerType";
