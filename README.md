@@ -29,6 +29,8 @@ Usage in TvT mission could be following:
 ## Module Usage
 Place the modules in the editor(located under Tanks Resource Management category) and play. You can set maximum duration of action which is number of seconds to completely refill given resource
 
+Also, for better experience, you can use tweaked versions of Kuma MBT
+
 ## System Overview
 System contains modules with attached holdAction. These modules are inheriting from ResourceModulesArea base class. 
 HoldAction will substantiallly add given resource, full progress of holdAction means that resource is fully replenished,
@@ -43,19 +45,19 @@ Hold action and its functonality is parametrized in two ways:
 
 1) #### ResourcesModuleParams subclass of given module
 
-``` c
-holdActionMaxProgress = 24; //Number of ticks in hold action. should not be overriden
-title = "Refuel"; //title of given hold acton 
-    
-idleIcon = "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa"; //path to the idle icon
-progressIcon = "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa"; //path to the progress icon  
-```   
+    ``` sqf
+    holdActionMaxProgress = 24; //Number of ticks in hold action. should not be overriden
+    title = "Refuel"; //title of given hold acton 
+        
+    idleIcon = "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa"; //path to the idle icon
+    progressIcon = "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa"; //path to the progress icon  
+    ```   
 
 2) #### Required module functions
    
-    **fnc_addResourceFraction**
+    **addResourceFraction**
         
-``` sqf  
+    ``` sqf  
     Description:
       
     Adds fraction of given resource to target.
@@ -64,14 +66,21 @@ progressIcon = "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa"; /
     IMPORTANT: Overwrite this function in specifc module, 
     to add desired resource to the target, this function is not to be
     called directly (unless debug)
+
+    Parameter(s):
+    _this select 0: OBJECT - target
+    _this select 1: NUMBER - resource fraction:
+            amount of resource added per hold action
+            tick, which is returned in getResourceFractionAndDuration
+    _this select 2 (Optional): NUMBER - _currentProgress - number of ticks passed
           
     Returns:
     Nothing
-```
+    ```
     
-   **fn_getResourceFractionAndDuration**
+    **getResourceFractionAndDuration**
    
-``` sqf
+    ``` sqf
     Description:
     
     Calculate how much of given resource will be added in holdActon tick, to replenish 
@@ -89,27 +98,21 @@ progressIcon = "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa"; /
     Returns:
     _this select 0: NUMBER - how much of given resource will be added
     _this select 1: NUMBER - how long it will take to replenish the resource fully
-```
+    ```
 
-**DON'T REGISTER THIS FUNCTIONS YOURSELF, USE *RESOURCE_MODULE_FUNCTIONS* MACRO, WITH NAME OF YOUR MODULE  CLASS AS A PARAMETER.
-THIS IS IMPORTANT, BECAUSE THE FUNCTIONS ARE LINKED AUTOMATICALLY WITH GIVEN MODULE.**
+      **DON'T REGISTER THIS FUNCTIONS YOURSELF, AS THEY ARE LOCAL FUNCTIONS REGISTERED AUTOMATICALLY WITH GIVEN MODULE.**
 
 ### Functions linking
-Functions in Arma Function manager are formed from TAG_ and function name itself.
-Using *RESOURCE_MODULE_FUNCTIONS* macro is important, because system assumes, that overridable functions
-will be in format *<YourModuleName>_fnc_addResourceFraction* and  *<YourModuleName>_fnc_getResourceFractionAndDuration*
+Functions formed from TAG_ and function name itself. System assumes, that overridable functions
+will be in format *\<YourModuleName\>_fnc_addResourceFraction* and  *\<YourModuleName\>_fnc_getResourceFractionAndDuration*
 these function names are looked up and returned as a functions on mission init and passed to the holdAction.
 
 ### Adding new resource:
 - Create new folder under Modules eq. ModuleResourceLollipops
-- Create *fn_addResourceFraction.sqf*, *fn_getResourceFractionAndDuration.sqf* and fill them with desired behaviour
-- Use RESOURCE_MODULE_FUNCTIONS macros macro for registering the functions
+- Create *addResourceFraction.sqf* and *getResourceFractionAndDuration.sqf* and fill them with desired behaviour
 - Create module class (currently theres no macro) and overwrite ResourcesModuleParams subclass
 
 ## Known issues and current caveats
-- Only overriden buildings should be used: 
-  If the modules would be used with default RepairDepot, 
-  than the players vehicle would be repaired instantly without need to wait for holdAction
 
 - The fuel station resource is not taking into account possible fuel 
-  loss while refueling, which is visible with low ammount of fuell
+  loss while refueling, which is visible with low ammount of fuel
