@@ -91,17 +91,6 @@ class ResourceModulesArea: ResourceModules
 			defaultValue = "true";
 			expression = _this setVariable ["#DrawBuildingMarkerIcon", _value];
 		};		
-
-		class BuildingMarker 
-		{
-			property = "#BuildingMarkerClass";
-			typeName = "String";
-			tooltip = $STR_TM_ResourceBuildingMarkerTooltip;
-			displayName = $STR_TM_AttrributeBuildingMarker;
-			expression = _this setVariable ["#BuildingMarkerClass", _value];
-			control = "CfgMarkerType";
-		};		
-
 		class ModuleDescription: ModuleDescription{};
 	};
 	

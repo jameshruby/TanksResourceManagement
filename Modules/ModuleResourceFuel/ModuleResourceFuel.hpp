@@ -11,6 +11,7 @@ class ModuleResourceFuel : ResourceModulesArea
 		idleIcon =  "A3\TanksResourceManagement\Img\holdAction_refuel_CA.paa"; 
 		cfgVehiclesQuery =  "_name = configName _x; _res = ((_name find 'Land_fs' == 0)||(_name find 'pump' == 0)||(_name find 'fuel' == 0)); _res"; 
         custoModuleFunctions[] = {"setVeryHungryFuelConsumptionRate"};
+		buildingMarkerType = """loc_Fuelstation""";
 	};
 	
 	class Attributes: Attributes
@@ -23,12 +24,6 @@ class ModuleResourceFuel : ResourceModulesArea
 		};
 
 		class DrawBuildingMarkerIcon: DrawBuildingMarkerIcon{};
-
-		class BuildingMarker : BuildingMarker
-		{
-			defaultValue = """loc_Fuelstation""";
-		};
-		
 		class ModuleDescription: ModuleDescription{};		
 	};
 

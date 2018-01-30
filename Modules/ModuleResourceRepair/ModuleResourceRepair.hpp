@@ -10,6 +10,7 @@ class ModuleResourceRepair : ResourceModulesArea
 		progressIcon = "A3\TanksResourceManagement\Img\holdAction_repair_CA.paa";
 		idleIcon = "A3\TanksResourceManagement\Img\holdAction_repair_CA.paa"; 
 		cfgVehiclesQuery = "configName _x isKindOf('Land_RepairDepot_01_base_F') && getNumber (_x >> 'transportRepair') == 0"; //buildingType
+		buildingMarkerType = """loc_RepairStation""";
 	};
 
 	class Attributes: Attributes
@@ -22,12 +23,6 @@ class ModuleResourceRepair : ResourceModulesArea
 		};
 
 		class DrawBuildingMarkerIcon: DrawBuildingMarkerIcon{};
-
-		class BuildingMarker : BuildingMarker
-		{
-			defaultValue = """loc_RepairStation""";
-		};	
-
 		class ModuleDescription: ModuleDescription{};		
 	};
 
