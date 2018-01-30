@@ -103,16 +103,16 @@
     </Container>
     <Container name="HoldActionTitles">
      <Key ID="STR_TM_HoldAction_unknown">
-        <Original>UNKNOWN RESOURCE ACTION</Original>
+        <Original>Unknown resource action</Original>
       </Key>
       <Key ID="STR_TM_HoldAction_rearm">
-        <Original>REARM</Original>
+        <Original>Rearm</Original>
       </Key>
       <Key ID="STR_TM_HoldAction_refuel">
-        <Original>REFUEL</Original>
+        <Original>Refuel</Original>
       </Key>
       <Key ID="STR_TM_HoldAction_repair">
-        <Original>REPAIR</Original>
+        <Original>Repair</Original>
       </Key>
     </Container>
   </Package>
