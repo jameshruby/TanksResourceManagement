@@ -3,7 +3,8 @@ class ModuleResourceFuel : ResourceModulesArea
 	icon = "A3\Ui_f\data\IGUI\Cfg\simpleTasks\types\refuel_ca.paa"; 
 	scope = 2;
 	displayName = $STR_TM_ResourceFuel;
-	
+	buildingMarkerType = "loc_Fuelstation";
+
 	class ResourcesModuleParams : ResourcesModuleParams
 	{
 		title = $STR_TM_HoldAction_refuel;
@@ -11,7 +12,6 @@ class ModuleResourceFuel : ResourceModulesArea
 		idleIcon =  "A3\TanksResourceManagement\Img\holdAction_refuel_CA.paa"; 
 		cfgVehiclesQuery =  "_name = configName _x; _res = ((_name find 'Land_fs' == 0)||(_name find 'pump' == 0)||(_name find 'fuel' == 0)); _res"; 
         custoModuleFunctions[] = {"setVeryHungryFuelConsumptionRate"};
-		buildingMarkerType = """loc_Fuelstation""";
 	};
 	
 	class Attributes: Attributes

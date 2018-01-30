@@ -87,7 +87,7 @@ class ResourceModulesArea: ResourceModules
 			property = "#DrawBuildingMarkerIcon";
 			displayName = $STR_TM_AttrributeDrawBuildingMarkerIcon;
 			tooltip = $STR_TM_ResourceCreateBuildingMarkerIconTooltip;
-			control = "CheckBox_CreateMarker";
+			control = "CheckBox";
 			defaultValue = "true";
 			expression = _this setVariable ["#DrawBuildingMarkerIcon", _value];
 		};		

@@ -18,7 +18,7 @@ switch _mode do {
 			_module call TM_fnc_module_createBuilding;	
 		};		
 		if (_isActivated) then {	
-			_module call TM_fnc_module_initTanksResourceManagement;	
+			_module call TM_fnc_module_initTanksResourceManagement;
 		};
 	};
 	case "attributesChanged3DEN": {// When some attributes were changed (including position and rotation)

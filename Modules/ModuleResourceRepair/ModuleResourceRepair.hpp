@@ -3,6 +3,7 @@ class ModuleResourceRepair : ResourceModulesArea
     icon = "A3\Ui_f\data\IGUI\Cfg\simpleTasks\types\repair_ca.paa"; 
 	scope = 2;
 	displayName = $STR_TM_ResourceRepair;
+	buildingMarkerType = "loc_RepairStation";
 	
 	class ResourcesModuleParams : ResourcesModuleParams
 	{
@@ -10,7 +11,6 @@ class ModuleResourceRepair : ResourceModulesArea
 		progressIcon = "A3\TanksResourceManagement\Img\holdAction_repair_CA.paa";
 		idleIcon = "A3\TanksResourceManagement\Img\holdAction_repair_CA.paa"; 
 		cfgVehiclesQuery = "configName _x isKindOf('Land_RepairDepot_01_base_F') && getNumber (_x >> 'transportRepair') == 0"; //buildingType
-		buildingMarkerType = """loc_RepairStation""";
 	};
 
 	class Attributes: Attributes

@@ -52,9 +52,6 @@
       <Key ID="STR_TM_AttrributeDrawBuildingMarkerIcon">
           <Original>Draw building marker icon</Original>
       </Key>
-      <Key ID="STR_TM_AttrributeBuildingMarker">
-          <Original>Building marker</Original>
-      </Key>
       <Key ID="STR_MaxDurationDisplayName">
           <Original>Max. duration</Original>
       </Key>
@@ -101,11 +98,6 @@
       <Key ID="STR_TM_BuildingTypeTooltip">
         <Original>
            Avialable building types which are representative for given resource
-        </Original>
-      </Key>
-      <Key ID="STR_TM_ResourceBuildingMarkerTooltip">
-        <Original>
-            Marker class used for marker icon, if you want to add custom icon, configure it as cfgMarkers
         </Original>
       </Key>
     </Container>
