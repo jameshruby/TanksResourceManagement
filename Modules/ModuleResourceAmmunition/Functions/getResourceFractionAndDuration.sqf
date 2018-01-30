@@ -8,6 +8,7 @@ private _mags = magazinesAllTurrets _object;
 {
 	_x params["_className", "_turretPath","_ammoCount"];
 	private _maxAmmoCount = getNumber(configFile >> "cfgMagazines" >> _className >> "count");
+	
 	_maxAmmoToAdd = _maxAmmoToAdd + _maxAmmoCount;
 	private _ammoToAdd = _maxAmmoCount - _ammoCount;
 	if (_ammoToAdd > 0) then {

@@ -15,7 +15,6 @@ private _functionNames =
 
 	"getResourceAcquisitionDuration",
 
-	"getModuleFunction",
 	"getResourceModuleFunctions"
 ];
 

@@ -10,13 +10,17 @@ _this: STRING - module name
 Returns:
 ARRAY of functions 
 */
-private _moduleName = _this;
+private _moduleName = _this select 0;
+private _customModuleFunctions = _this select 1;
 
 private _functionNames = 
 [
+	"init",
 	"getResourceFractionAndDuration",
 	"addResourceFraction"
 ];
+
+_functionNames append _customModuleFunctions;
 
 _path = "\A3\TanksResourceManagement\Modules\" + _moduleName + "\Functions\";
 [
@@ -24,10 +28,3 @@ _path = "\A3\TanksResourceManagement\Modules\" + _moduleName + "\Functions\";
 	_moduleName + "_fnc_",
 	_functionNames
 ] call bis_fnc_loadFunctions;
-
-private _functions = [];
-{
-	private _function = [_x, _moduleName] call TM_fnc_getModuleFunction;
-	_functions pushBack _function;
-} forEach _functionNames;	
-_functions

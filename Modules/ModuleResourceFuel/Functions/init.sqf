@@ -1,0 +1,1 @@
+//10 spawn ModuleResourceFuel_fnc_setVeryHungryFuelConsumptionRate;

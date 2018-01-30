@@ -37,9 +37,11 @@ class ResourceModulesArea: ResourceModules
 		holdActionMaxProgress = 24;
 
 		title = $STR_TM_HoldAction_unknown;
-
 		idleIcon = "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa";
 		progressIcon = "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa";
+		
+		cfgVehiclesQuery = "false";// "false" configClasses(configFile >> "cfgVehicles")
+		custoModuleFunctions[] = {};
 	};
 	
 	class AttributeValues

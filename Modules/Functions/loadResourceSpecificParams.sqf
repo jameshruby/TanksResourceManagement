@@ -32,14 +32,18 @@ private _holdActionMaxProgress = getNumber(_resourcesModuleParams >> "holdAction
 private _idleIcon = getText(_resourcesModuleParams >> "idleIcon");
 private _progressIcon = getText(_resourcesModuleParams >> "progressIcon");
 
-private _resourceSpecificFunctions = _moduleName call TM_fnc_getResourceModuleFunctions;	
+private _custoModuleFunctions = getArray(_resourcesModuleParams >> "custoModuleFunctions");
+
+[_moduleName, _custoModuleFunctions] call TM_fnc_getResourceModuleFunctions;	
+
+[] call (missionNamespace getVariable (_moduleName +"_fnc_init"));
 
 [
 	_pos, _radius,
 	[
 		_title,
 		[_maxDuration, _holdActionMaxProgress],
-		_resourceSpecificFunctions,
+		_moduleName,
 		[_idleIcon, _progressIcon]
 	]
 ]

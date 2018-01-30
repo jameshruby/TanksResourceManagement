@@ -1,0 +1,1 @@
+//30 spawn ModuleResourceAmmunition_fnc_setVeryLowAmmoCount;

@@ -10,6 +10,7 @@ class ModuleResourceAmmunition : ResourceModulesArea
 		progressIcon = "A3\TanksResourceManagement\Img\holdAction_rearm_CA.paa";
 		idleIcon =  "A3\TanksResourceManagement\Img\holdAction_rearm_CA.paa";
 		cfgVehiclesQuery = "configName _x isKindOf('B_Slingload_01_Ammo_F') && getNumber (_x >> 'transportAmmo') == 0";
+		custoModuleFunctions[] = {"setVeryLowAmmoCount"};
 	};
 
 	class Attributes: Attributes

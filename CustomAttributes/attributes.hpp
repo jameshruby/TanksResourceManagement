@@ -84,3 +84,22 @@ class CheckBox_CreateMarker: Checkbox
 	};
 };
 
+///////////////// other class
+
+class CfgGroupsCombo: Combo
+{
+	class Controls: Controls
+	{
+		class Title: Title{};
+		class Value: Value
+		{
+			onload = "\
+				_control = _this select 0;\
+				_cparams = ['CfgGroups', 'name', 'icon'] call TM_fnc_getAnyCfgAttributes;\
+				[_cparams, _control]  call TM_fnc_loadClassAttributes;\
+			";
+			
+		};
+	};
+};
+
