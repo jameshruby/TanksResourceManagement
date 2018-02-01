@@ -11,7 +11,7 @@ class ModuleResourceFuel : ResourceModulesArea
 		progressIcon = "A3\TanksResourceManagement\Img\holdAction_refuel_CA.paa"; 
 		idleIcon =  "A3\TanksResourceManagement\Img\holdAction_refuel_CA.paa"; 
 		cfgVehiclesQuery =  "_name = configName _x; _res = ((_name find 'Land_fs' == 0)||(_name find 'pump' == 0)||(_name find 'fuel' == 0)); _res"; 
-        custoModuleFunctions[] = {"setVeryHungryFuelConsumptionRate"};
+        custoModuleFunctions[] = {};
 	};
 	
 	class Attributes: Attributes
