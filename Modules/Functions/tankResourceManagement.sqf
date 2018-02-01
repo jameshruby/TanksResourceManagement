@@ -15,7 +15,7 @@ private _loadResourceSpecificParams = {
 	private _moduleName = typeof _module;
 	private _pos = getPos _module;
 	private _area = _module getVariable "objectArea";	
-	private _radius = (_area select 0) max (_area select 1);
+	private _radius = [_area select 0, _area select 1];
 
 	private _maxDuration = _module getVariable "#MaxDuration";
 	private _resourcesModuleParams =  (configFile >> "CfgVehicles" >> _moduleName >> "ResourcesModuleParams");
@@ -65,13 +65,22 @@ private _getResourceModuleFunctions = {
 	] call bis_fnc_loadFunctions;
 };
 
+/*
+	I would probably need to check that theres vehicle in the trigger 
+	and so to blah
+	or 
+
+	other version possible 
+*/
+
+
 //Creates trigger on given position which will add the holdAction to given player whene activated. 
 //Player needs to be effective commmander of vehicle.
 private _createTriggerFunctionAction = {
 	params["_pos", "_radius", "_actionFncParams"];
 	private _trigger =	 createTrigger ["EmptyDetector", _pos];
 	_trigger setTriggerTimeout [0, 0, 0, true];
-	_trigger setTriggerArea [_radius, _radius, 0, false];
+	_trigger setTriggerArea [_radius select 0, _radius select 1, 0, false];
 	_trigger setTriggerActivation ["ANY", "PRESENT", true];
 	_trigger setTriggerStatements [
 		"this && vehicle player != player && vehicle player in thisList", // && player == effectiveCommander vehicle player 
