@@ -9,7 +9,6 @@ class CfgFunctions
 		{
 			file = "A3\TanksResourceManagement\Functions";
 			class module_tanksResourceBuildingModule;
-			class module_loadLocalFunctions;
 		};
 	
 		class CustomAttributes

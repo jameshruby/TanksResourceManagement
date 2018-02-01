@@ -20,6 +20,17 @@ _durationParams params ["_maxDuration","_holdActionMaxProgress"];
 
 _iconParams params["_idleIcon", "_progressIcon"];
 
+// private _path = "\A3\TanksResourceManagement\Modules\" + _moduleName + "\Functions\";
+// [
+// 	_path,
+// 	_moduleName + "_fnc_",
+// 	[
+// 	"init",
+// 	"getResourceFractionAndDuration",
+// 	"addResourceFraction"
+// 	]
+// ] call bis_fnc_loadFunctions;
+
 private _actionId = -1;
 private _durationParams = [_object, _holdActionMaxProgress, _maxDuration] call (missionNamespace getVariable (_moduleName +"_fnc_getResourceFractionAndDuration"));
 
