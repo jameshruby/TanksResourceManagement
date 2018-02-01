@@ -24,17 +24,6 @@ private _main = {
 			};
 		};
 		case "attributesChanged3DEN": {// When some attributes were changed (including position and rotation)
-			
-			private _initializedTwice = _module getVariable ["#_initializedTwice", false];	
-			private _initialized = _module getVariable ["#initialized",false];
-			if (!_initialized || _initializedTwice) then
-			{
-				[] call _loadLocalFunctions;
-				_module setVariable ["#initialized", true];
-				_module setVariable ["#_initializedTwice",false]; 		
-			};	
-			_module setVariable ["#_initializedTwice",true];		
-			
 			//we need to recreate the building each time in case that building type is changed 
 			if (!isNull (_module getVariable ["#building", objNull])) then {
 				_module call _deleteBuilding; 
