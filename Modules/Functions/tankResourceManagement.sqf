@@ -80,7 +80,7 @@ private _createTriggerFunctionAction = {
 	_trigger setTriggerStatements [
 		"this && vehicle player in thisList", //vehicle player in thisList  && count thisList > 0
 		format["_actionId = [vehicle player,thisTrigger, %1] call TM_fnc_addResourceAction; thisTrigger setVariable['actionId', _actionId]",  _actionFncParams], //vehicle player setFuel 1 ((Fuel _target) + 0.2)    [] spawn _zone_room_in   vehicle player call _resourceRefuel;
-		"[thisTrigger getVariable '#building', (thisTrigger getVariable 'actionId')] call BIS_fnc_holdActionRemove" 
+		"[thisTrigger getVariable '#firstVehicle', (thisTrigger getVariable 'actionId')] call BIS_fnc_holdActionRemove" 
 	];
 };
 

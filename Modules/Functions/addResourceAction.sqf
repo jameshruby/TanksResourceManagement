@@ -11,7 +11,6 @@ _this select 1: ARRAY - the hold action parameters
 Returns:
 NUMBER - action ID
 */
-'FER Trigger' call bis_fnc_log;
 params["_callerUnit", "_trigger", "_actionFncParams"];
 
 private _building = _trigger getVariable "#building";
