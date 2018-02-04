@@ -14,6 +14,7 @@ private _loadResourceSpecificParams = {
 
 	private _moduleName = typeof _module;
 	private _pos = getPos _module;
+	private _building = _module getVariable "#building";
 	private _area = _module getVariable "objectArea";	
 	private _radius = [_area select 0, _area select 1];
 
@@ -33,7 +34,7 @@ private _loadResourceSpecificParams = {
 	//[] call (missionNamespace getVariable (_moduleName +"_fnc_init"));
 
 	[
-		_pos, _radius,
+		_building, _radius,
 		[
 			_title,
 			[_maxDuration, _holdActionMaxProgress],
@@ -65,27 +66,21 @@ private _getResourceModuleFunctions = {
 	] call bis_fnc_loadFunctions;
 };
 
-/*
-	I would probably need to check that theres vehicle in the trigger 
-	and so to blah
-	or 
-
-	other version possible 
-*/
-
-
 //Creates trigger on given position which will add the holdAction to given player whene activated. 
 //Player needs to be effective commmander of vehicle.
 private _createTriggerFunctionAction = {
-	params["_pos", "_radius", "_actionFncParams"];
-	private _trigger =	 createTrigger ["EmptyDetector", _pos];
+	params["_building", "_radius", "_actionFncParams"];
+	private _trigger = createTrigger ["EmptyDetector", getPos _building];
+	
+	_trigger setVariable["#building" ,_building];
+	
 	_trigger setTriggerTimeout [0, 0, 0, true];
 	_trigger setTriggerArea [_radius select 0, _radius select 1, 0, false];
 	_trigger setTriggerActivation ["ANY", "PRESENT", true];
 	_trigger setTriggerStatements [
-		"this && vehicle player != player && vehicle player in thisList", // && player == effectiveCommander vehicle player 
-		format["_actionId = [vehicle player, %1] call TM_fnc_addResourceAction; vehicle player setVariable['actionId', _actionId]",  _actionFncParams], //vehicle player setFuel 1 ((Fuel _target) + 0.2)    [] spawn _zone_room_in   vehicle player call _resourceRefuel;
-		"[vehicle player, ((vehicle player) getVariable 'actionId')] call BIS_fnc_holdActionRemove"
+		"this && vehicle player in thisList", //vehicle player in thisList  && count thisList > 0
+		format["_actionId = [vehicle player,thisTrigger, %1] call TM_fnc_addResourceAction; thisTrigger setVariable['actionId', _actionId]",  _actionFncParams], //vehicle player setFuel 1 ((Fuel _target) + 0.2)    [] spawn _zone_room_in   vehicle player call _resourceRefuel;
+		"[thisTrigger getVariable '#building', (thisTrigger getVariable 'actionId')] call BIS_fnc_holdActionRemove" 
 	];
 };
 

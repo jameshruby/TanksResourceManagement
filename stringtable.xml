@@ -115,5 +115,16 @@
         <Original>Repair</Original>
       </Key>
     </Container>
+    <Container name="HoldActionMessages">
+      <Key ID="STR_TM_HoldActionMessage_noVehicle">
+        <Original>Theres no vehicle for this action</Original>
+      </Key>
+       <Key ID="STR_TM_HoldActionMessage_inVehicle">
+        <Original>You need to be out of vehicle in order to perform this action</Original>
+      </Key>
+      <Key ID="STR_TM_HoldActionMessage_inProgress">
+        <Original>in progress</Original>
+      </Key>
+    </Container>
   </Package>
 </Project>
