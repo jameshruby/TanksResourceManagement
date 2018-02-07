@@ -9,11 +9,10 @@ private _main = {
 	private _mode = param [0,"",[""]];
 	private _input = param [1,[],[[]]];
 	_module = _input param [0,objNull,[objNull]];
-
 	switch _mode do {
 		case "init": {
 			if (is3DEN) then {
-				[] call _drawEhAdd;	
+				[] call _drawEhAdd; 
 			} else {
 				_isActivated = _input param [1,true,[true]];
 				[] call _loadLocalFunctions;
@@ -63,30 +62,7 @@ private _main = {
 				//_module call _setMarkerPos;
 			};
 		};
-		case "registeredToWorld3DEN": {// When added to the world (e.g., after undoing and redoing creation)
-			private _building  = _this call _createBuilding;
-			[_this, _building] call _createLocationMarker;
-		};
-		case "unregisteredFromWorld3DEN": {// When removed from the world (i.e., by deletion or undoing creation)
-			if (_module getVariable "#CreateBuilding") then {
-				_module call _deleteBuilding;
-			};
-			if (_module getVariable "#DrawBuildingMarkerIcon") then {
-				_module call _deleteMarker;
-			};
-			
-			[] call _drawEhRemove;
-		};
-		case "dragged3DEN": {// When object is being dragged
-			if (_module getVariable "#CreateBuilding") then {
-				_module call _setBuildingDirPos; 
-			};
-			if (_module getVariable "#DrawBuildingMarkerIcon") then {
-				_module call _setMarkerPos;
-			};
-		};
-
-		case "getBuildingBBox ": {
+		case "getBuildingBBox": {
 			//we cant make local fnc, for the sake of scopinh
 			private _building = _input param [1,objNull,[objNull]];
 			if (isNull _building) exitWith {[]};
@@ -126,6 +102,29 @@ private _main = {
 
 			_edges
 		};
+		case "registeredToWorld3DEN": {// When added to the world (e.g., after undoing and redoing creation)
+			private _building  = _this call _createBuilding;
+			[_this, _building] call _createLocationMarker;
+		};
+		case "unregisteredFromWorld3DEN": {// When removed from the world (i.e., by deletion or undoing creation)
+			if (_module getVariable "#CreateBuilding") then {
+				_module call _deleteBuilding;
+			};
+			if (_module getVariable "#DrawBuildingMarkerIcon") then {
+				_module call _deleteMarker;
+			};
+			
+			[] call _drawEhRemove;
+		};
+		case "dragged3DEN": {// When object is being dragged
+			if (_module getVariable "#CreateBuilding") then {
+				_module call _setBuildingDirPos; 
+			};
+			if (_module getVariable "#DrawBuildingMarkerIcon") then {
+				_module call _setMarkerPos;
+			};
+		};
+
 	};
 };
 
@@ -154,8 +153,7 @@ private _drawEhAdd = {
 			private _building = _module getVariable ["#building",objNull];
 			if (isNull _building) exitWith {};
 			//draw bbox
-			private _bbox = missionNamespace getVariable ["#bbox",[]];
-			_bbox = ["getBuildingBBox",[_module,_building]] call TM_fnc_module_tanksResourceBuildingModule;
+			private _bbox = ["getBuildingBBox",[_module,_building]] call TM_fnc_module_tanksResourceBuildingModule;
 			{drawLine3D _x} forEach _bbox;
 		}];
 		missionNamespace setVariable ["resourceModules_ehDraw3D",_ehDraw3D];
