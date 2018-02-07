@@ -10,7 +10,7 @@ class ModuleResourceFuel : ResourceModulesArea
 		title = $STR_TM_HoldAction_refuel;
 		progressIcon = "A3\TanksResourceManagement\Img\holdAction_refuel_CA.paa"; 
 		idleIcon =  "A3\TanksResourceManagement\Img\holdAction_refuel_CA.paa"; 
-		cfgVehiclesQuery =  "_name = configName _x; _res = ((_name find 'Land_fs' == 0)||(_name find 'pump' == 0)||(_name find 'fuel' == 0)); _res"; 
+		cfgVehiclesQuery = "configName _x isKindOf('Slingload_base_F') && getNumber (_x >> 'transportFuel') == 0 && (((configName _x) find 'fuel') >= 0 || ((configName _x) find 'Fuel') >= 0)"; //buildingType
         custoModuleFunctions[] = {};
 	};
 	
@@ -20,7 +20,7 @@ class ModuleResourceFuel : ResourceModulesArea
 		class CreateBuilding : CreateBuilding{};
 		class BuildingType: BuildingType
 		{
-			defaultValue = """Land_fs_roof_F""";
+			defaultValue = """B_Slingload_01_Fuel_F_NoFunction""";
 		};
 
 		class DrawBuildingMarkerIcon: DrawBuildingMarkerIcon{};

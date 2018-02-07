@@ -61,6 +61,12 @@
        <Key ID="STR_TM_RearmStationMarkerDisplayName">
           <Original>Rearm Station</Original>
       </Key>
+      <Key ID="STR_TM_FuelContainerDisplayName">
+        <Original>Huron Fuel Container (No function)</Original>
+      </Key>
+      <Key ID="STR_TM_FuelPodDisplayName">
+        <Original>Taru Fuel Pod (Black - No function)</Original>
+      </Key>
    </Container>
     <Container name="ModuleDescriptions">
       <Key ID="STR_TM_ResourceAmmunitionDescription">
