@@ -3,7 +3,7 @@
 private _main = {
 	private _module = _this;
 	private _resourceSpecificParams = _module call _loadResourceSpecificParams;
-	_resourceSpecificParams call _createTriggerFunctionAction;
+	_resourceSpecificParams call _initTriggerHoldAction;
 };
 
 //Forms resource action parameters, some of these are taken from the module itself, others are loaded
@@ -68,7 +68,7 @@ private _getResourceModuleFunctions = {
 
 //Creates trigger on given position which will add the holdAction to given player whene activated. 
 //Player needs to be effective commmander of vehicle.
-private _createTriggerFunctionAction = {
+private _initTriggerHoldAction = {
 	params["_building", "_radius", "_actionFncParams"];
 	private _trigger = createTrigger ["EmptyDetector", getPos _building];
 	
