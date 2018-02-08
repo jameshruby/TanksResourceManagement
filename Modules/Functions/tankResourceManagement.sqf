@@ -71,10 +71,10 @@ private _initTriggerHoldAction = {
 	_building enableSimulation true; //enable sim again
 	private _trigger = createTrigger ["EmptyDetector", getPos _building];	
 	
-	_building setVariable['#trigger', _trigger];
+	_building setVariable["#trigger", _trigger];
 	_building addEventHandler ["Killed",{
 		_trigger = (_this select 0) getVariable "#trigger";
-		hint str _trigger;
+		[_trigger getVariable '#firstVehicle', (_trigger getVariable 'actionId')] call BIS_fnc_holdActionRemove;
 		deleteVehicle _trigger;
 	}];
 	_trigger setVariable ["#building", _building];
@@ -83,8 +83,8 @@ private _initTriggerHoldAction = {
 	_trigger setTriggerArea [_radius select 0, _radius select 1, 0, false];
 	_trigger setTriggerActivation ["ANY", "PRESENT", true];
 	_trigger setTriggerStatements [
-		"this && vehicle player in thisList", //vehicle player in thisList  && count thisList > 0
-		format["_actionId = [vehicle player,thisTrigger, %1] call TM_fnc_addResourceAction; thisTrigger setVariable['actionId', _actionId]",  _actionFncParams], //vehicle player setFuel 1 ((Fuel _target) + 0.2)    [] spawn _zone_room_in   vehicle player call _resourceRefuel;
+		"this && vehicle player in thisList", // && count thisList > 0
+		format["_actionId = [vehicle player,thisTrigger, %1] call TM_fnc_addResourceAction; thisTrigger setVariable['actionId', _actionId]",  _actionFncParams],
 		"[thisTrigger getVariable '#firstVehicle', (thisTrigger getVariable 'actionId')] call BIS_fnc_holdActionRemove" 
 	];
 };
