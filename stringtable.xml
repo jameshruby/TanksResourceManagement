@@ -131,6 +131,9 @@
       <Key ID="STR_TM_HoldActionMessage_inProgress">
         <Original>in progress</Original>
       </Key>
+      <Key ID="STR_TM_HoldActionMessage_itsFine">
+        <Original>You're fine, and you can't get more</Original>
+      </Key>
     </Container>
   </Package>
 </Project>

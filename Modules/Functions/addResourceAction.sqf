@@ -57,14 +57,19 @@ _actionId = [
 	_title,               // Title of the action
 	_idleIcon,            // Idleicon shown on screen
 	_progressIcon,       // Progress icon shown on screen
-	"true",  // Condition for the action to be shown _trigger setPos _buildingPos; 	if(_target  == _caller) then {};  !(_buildingPos isEqualTo getPos _trigger)) private _buildingPos = getPos _pos;   
+	"true",  // Condition for the action to be shown
 	"	private _val = false;
 		if(_target  == _caller) then {
 			titleText [localize 'STR_TM_HoldActionMessage_noVehicle', 'PLAIN DOWN', -1, true, true];
 			_val = false;
 		} else {
 			if(vehicle player == player) then {
-				_val = true;
+				 if ((_arguments select 4) < 0.1) then {
+					titleText [localize 'STR_TM_HoldActionMessage_itsFine', 'PLAIN DOWN', -1, true, true];
+					_val = false;
+				 } else {
+					_val = true;
+				 };
 			} else {
 				titleText [localize 'STR_TM_HoldActionMessage_inVehicle', 'PLAIN DOWN', -1, true, true];
 				_val = false;
@@ -80,7 +85,13 @@ _actionId = [
 		titleText [format[".. %1 %2 ..", _title, localize "STR_TM_HoldActionMessage_inProgress"], 'PLAIN DOWN', 0.3, true, true];	
 		[_target,_resourceFraction , _currentProgress] call (missionNamespace getVariable (_moduleName +"_fnc_addResourceFraction"))
 	}, 
-	{}, // Code executed on completion
+	{
+		private _trigger = _arguments select 3; 
+		private _actionFncParams = _arguments select 2; 
+		[_target, _trigger getVariable "actionId"] call BIS_fnc_holdActionRemove; 
+		private _actionId = [_target, _trigger, _actionFncParams] call TM_fnc_addResourceAction; 
+		_trigger setVariable ["actionId", _actionId]
+	}, // Code executed on completion
 	{
 		private _trigger = _arguments select 3; 
 		private _actionFncParams = _arguments select 2; 
@@ -88,7 +99,7 @@ _actionId = [
 		private _actionId = [_target, _trigger, _actionFncParams] call TM_fnc_addResourceAction; 
 		_trigger setVariable ["actionId", _actionId]
 	},                                                                   // Code executed on interrupted
-	[_moduleName, _resourceFraction, _actionFncParams, _trigger],        // Arguments passed to the scripts as _this select 3
+	[_moduleName, _resourceFraction, _actionFncParams, _trigger, _holdActionDuration],   // Arguments passed to the scripts as _this select 3
 	_holdActionDuration,                                                 // Action duration [s] 
 	0,                                                                   // Priority
 	true,                                                                // Remove on completion
