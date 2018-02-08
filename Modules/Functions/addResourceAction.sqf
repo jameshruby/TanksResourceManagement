@@ -14,6 +14,7 @@ NUMBER - action ID
 params["_callerUnit", "_trigger", "_actionFncParams"];
 
 private _building = _trigger getVariable "#building";
+_building setVariable["#trigger", _trigger]; 
 
 _actionFncParams params["_title", "_durationParams", "_moduleName", "_iconParams"];
 _durationParams params ["_maxDuration","_holdActionMaxProgress"];
@@ -38,29 +39,34 @@ if (isNull _firstTriggerVehicle) then {
 	 _durationParams = [_firstTriggerVehicle, _holdActionMaxProgress, _maxDuration] call (missionNamespace getVariable (_moduleName +"_fnc_getResourceFractionAndDuration"));
 }; 
 
-_trigger setvariable [ "#firstVehicle", _firstTriggerVehicle];
-_durationParams params["_resourceFraction", "_holdActionDuration"];
-
-private _titleTex = {
-	titleText [format["<t size='2'>%1</t>", _this], "PLAIN DOWN", -1, true, true];
+[_trigger, _building] spawn {
+	params["_trigger", "_building"];
+	while {true} do {
+		private _buildingPos = getPos _building;
+		if (!(_buildingPos isEqualTo getPos _trigger)) then {
+			_trigger setPos _buildingPos;
+		};
+	};
 };
 
+_trigger setvariable [ "#firstVehicle", _firstTriggerVehicle];	
+_durationParams params["_resourceFraction", "_holdActionDuration"];
+
 _actionId = [
-	_firstTriggerVehicle,             // Object the action is attached to
-	_title,              // Title of the action
+	_firstTriggerVehicle, // Object the action is attached to
+	_title,               // Title of the action
 	_idleIcon,            // Idleicon shown on screen
 	_progressIcon,       // Progress icon shown on screen
-	"true",  			 // Condition for the action to be shown 
-	"
-		private _val = false;
+	"true",  // Condition for the action to be shown _trigger setPos _buildingPos; 	if(_target  == _caller) then {};  !(_buildingPos isEqualTo getPos _trigger)) private _buildingPos = getPos _pos;   
+	"	private _val = false;
 		if(_target  == _caller) then {
-			titleText [localize 'STR_TM_HoldActionMessage_noVehicle', 'PLAIN DOWN', -1, true, false];
+			titleText [localize 'STR_TM_HoldActionMessage_noVehicle', 'PLAIN DOWN', -1, true, true];
 			_val = false;
 		} else {
 			if(vehicle player == player) then {
 				_val = true;
 			} else {
-				titleText [localize 'STR_TM_HoldActionMessage_inVehicle', 'PLAIN DOWN', -1, true, false];
+				titleText [localize 'STR_TM_HoldActionMessage_inVehicle', 'PLAIN DOWN', -1, true, true];
 				_val = false;
 			};
 		};

@@ -28,7 +28,6 @@ private _main = {
 					if (isNull _building) exitWith {};
 					_module setVariable ["#building",_building];
 				};		
-
 				if (_module getVariable "#DrawBuildingMarkerIcon") then {
 					[_module, _building] call _createLocationMarker;
 				};
@@ -269,15 +268,11 @@ private _deleteBuilding = {
 //and building would be standing elsewhere due too colisions, or player interaction such as moving the building with heavy vehicle
 private _createMapEditorBuilding = {
 	params["_buildingClass","_pos", "_direction"];
-
 	private _building = createVehicle [_buildingClass, _pos, [], 0, "CAN_COLLIDE"];
-	_building allowDamage false;
 	_building enableSimulation false;
-
 	_building setVectorUp [0, 0, 1];
 	_building setDir (_direction); 
 	_building setPosATL _pos;
-	_building allowDamage false;
 
 	_building
 };

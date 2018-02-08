@@ -31,8 +31,6 @@ private _loadResourceSpecificParams = {
 
 	[_moduleName, _custoModuleFunctions] call _getResourceModuleFunctions;	
 
-	//[] call (missionNamespace getVariable (_moduleName +"_fnc_init"));
-
 	[
 		_building, _radius,
 		[
@@ -51,7 +49,6 @@ private _getResourceModuleFunctions = {
 
 	private _functionNames = 
 	[
-		"init",
 		"getResourceFractionAndDuration",
 		"addResourceFraction"
 	];
@@ -70,10 +67,18 @@ private _getResourceModuleFunctions = {
 //Player needs to be effective commmander of vehicle.
 private _initTriggerHoldAction = {
 	params["_building", "_radius", "_actionFncParams"];
-	private _trigger = createTrigger ["EmptyDetector", getPos _building];
 	
-	_trigger setVariable["#building" ,_building];
+	_building enableSimulation true; //enable sim again
+	private _trigger = createTrigger ["EmptyDetector", getPos _building];	
 	
+	_building setVariable['#trigger', _trigger];
+	_building addEventHandler ["Killed",{
+		_trigger = (_this select 0) getVariable "#trigger";
+		hint str _trigger;
+		deleteVehicle _trigger;
+	}];
+	_trigger setVariable ["#building", _building];
+
 	_trigger setTriggerTimeout [0, 0, 0, true];
 	_trigger setTriggerArea [_radius select 0, _radius select 1, 0, false];
 	_trigger setTriggerActivation ["ANY", "PRESENT", true];
