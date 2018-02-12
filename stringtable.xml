@@ -134,6 +134,9 @@
       <Key ID="STR_TM_HoldActionMessage_itsFine">
         <Original>You're fine, and you can't get more</Original>
       </Key>
+      <Key ID="STR_TM_HoldActionMessage_actionIsLocked">
+        <Original>somebody else is currently using this action</Original>
+      </Key>
     </Container>
   </Package>
 </Project>

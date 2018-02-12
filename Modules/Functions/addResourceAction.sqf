@@ -58,25 +58,36 @@ _actionId = [
 	_idleIcon,            // Idleicon shown on screen
 	_progressIcon,       // Progress icon shown on screen
 	"true",  // Condition for the action to be shown
-	"	private _val = false;
+		"
+		private _val = false;
 		if(_target  == _caller) then {
 			titleText [localize 'STR_TM_HoldActionMessage_noVehicle', 'PLAIN DOWN', -1, true, true];
 			_val = false;
 		} else {
 			if(vehicle player == player) then {
-				 if ((_arguments select 4) < 0.1) then {
-					titleText [localize 'STR_TM_HoldActionMessage_itsFine', 'PLAIN DOWN', -1, true, true];
+				_trigger = _arguments select 3;
+				_building = _trigger getVariable '#building';
+				_houseAction = _building getVariable ['#holdActionsInUse', ''];
+				if (!(_houseAction isEqualTo '') && ! (_houseAction isEqualTo name player)) then {
+					titleText [localize 'STR_TM_HoldActionMessage_actionIsLocked', 'PLAIN DOWN', -1, true, true];
 					_val = false;
-				 } else {
-					_val = true;
-				 };
+				} else {
+					if ((_arguments select 4) < 0.1) then {
+						titleText [localize 'STR_TM_HoldActionMessage_itsFine', 'PLAIN DOWN', -1, true, true];
+						_val = false;
+					} else {
+						 _building setVariable['#holdActionsInUse', name player, true];
+						_val = true;
+					};
+				};
 			} else {
 				titleText [localize 'STR_TM_HoldActionMessage_inVehicle', 'PLAIN DOWN', -1, true, true];
 				_val = false;
 			};
 		};
 		_val
-	", 			 // Condition for the action to progress 
+	"
+	, 			 // Condition for the action to progress 
 	{},			 // Code executed when action starts
 	{
 		_arguments params["_moduleName", "_resourceFraction", "_actionFncParams"];
@@ -88,14 +99,19 @@ _actionId = [
 	{
 		private _trigger = _arguments select 3; 
 		private _actionFncParams = _arguments select 2; 
+		_building = _trigger getVariable '#building';
+		_building setVariable['#holdActionsInUse', '', true];
 		[_target, _trigger getVariable "actionId"] call BIS_fnc_holdActionRemove; 
 		private _actionId = [_target, _trigger, _actionFncParams] call TM_fnc_addResourceAction; 
+		
 		_trigger setVariable ["actionId", _actionId]
 	}, // Code executed on completion
 	{
 		private _trigger = _arguments select 3; 
 		private _actionFncParams = _arguments select 2; 
 		[_target, _trigger getVariable "actionId"] call BIS_fnc_holdActionRemove; 
+		_building = _trigger getVariable '#building';
+		_building setVariable['#holdActionsInUse', '', true];
 		private _actionId = [_target, _trigger, _actionFncParams] call TM_fnc_addResourceAction; 
 		_trigger setVariable ["actionId", _actionId]
 	},                                                                   // Code executed on interrupted

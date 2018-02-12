@@ -16,23 +16,27 @@ private _main = {
 			} else {
 				_isActivated = _input param [1,true,[true]];
 				[] call _loadLocalFunctions;
+				waitUntil{time > 0};
 
-				private _building = objNull; 
-				if (_module getVariable "#CreateBuilding") then {
-					_building = _module call _createBuilding;	
-				} else {
-					//we can do it like this,as module is snapped at exact building position
-					private _terrainBuildingRadius = 0;
-					private _buildings = [_module, _terrainBuildingRadius] call _getTerrainBuildings;
-					_building = [_module, _buildings] call _getTerrainBuilding;
-					if (isNull _building) exitWith {};
-					_module setVariable ["#building",_building];
-				};		
-				if (_module getVariable "#DrawBuildingMarkerIcon") then {
-					[_module, _building] call _createLocationMarker;
+				if (isServer) then {
+					private _building = objNull; 
+					if (_module getVariable "#CreateBuilding") then {
+						_building = _module call _createBuilding;	
+					} else {
+						//we can do it like this,as module is snapped at exact building position
+						private _terrainBuildingRadius = 0;
+						private _buildings = [_module, _terrainBuildingRadius] call _getTerrainBuildings;
+						_building = [_module, _buildings] call _getTerrainBuilding;
+						if (isNull _building) exitWith {};
+						_module setVariable ["#building",_building, true];
+					};		
+					if (_module getVariable "#DrawBuildingMarkerIcon") then {
+						[_module, _building] call _createLocationMarker;
+					};
+					_building enableSimulation true; //enable sim again
 				};
-
-				if (_isActivated) then {	
+				
+				if (_isActivated) then {
 					_module call TM_fnc_tankResourceManagement;
 				};
 			};
@@ -165,7 +169,7 @@ private _useTerrainObject = {
 
 	private _buildings = [_module, _terrainBuildingRadius] call _getTerrainBuildingsEden;
 	private _building = [_module, _buildings] call _getTerrainBuildingEden;
-	_module setVariable ["#building",_building];
+	_module setVariable ["#building",_building, true];
 	if (isNull _building) exitWith {};
 	_module call _setTerrainBuildingEden;
 	_building
@@ -247,7 +251,7 @@ private _createBuilding = {
 	private _buildingClass = _module getVariable "#BuildingClass";
 	
 	private _building = [_buildingClass, _pos, _direction] call _createMapEditorBuilding;
-	_module setVariable ["#building", _building];
+	_module setVariable ["#building", _building, true];
 	_building
 };
 

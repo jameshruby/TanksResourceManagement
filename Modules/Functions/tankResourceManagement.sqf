@@ -11,7 +11,6 @@ private _main = {
 //subsequently to hold action itself
 private _loadResourceSpecificParams = {
 	private _module = _this;
-
 	private _moduleName = typeof _module;
 	private _pos = getPos _module;
 	private _building = _module getVariable "#building";
@@ -30,7 +29,6 @@ private _loadResourceSpecificParams = {
 	private _custoModuleFunctions = getArray(_resourcesModuleParams >> "custoModuleFunctions");
 
 	[_moduleName, _custoModuleFunctions] call _getResourceModuleFunctions;	
-
 	[
 		_building, _radius,
 		[
@@ -66,27 +64,33 @@ private _getResourceModuleFunctions = {
 //Creates trigger on given position which will add the holdAction to given player whene activated. 
 //Player needs to be effective commmander of vehicle.
 private _initTriggerHoldAction = {
-	params["_building", "_radius", "_actionFncParams"];
-	
-	_building enableSimulation true; //enable sim again
-	private _trigger = createTrigger ["EmptyDetector", getPos _building];	
-	
-	_building setVariable["#trigger", _trigger];
-	_building addEventHandler ["Killed",{
-		_trigger = (_this select 0) getVariable "#trigger";
-		[_trigger getVariable '#firstVehicle', (_trigger getVariable 'actionId')] call BIS_fnc_holdActionRemove;
-		deleteVehicle _trigger;
-	}];
-	_trigger setVariable ["#building", _building];
+	 params["_building", "_radius", "_actionFncParams"];
 
-	_trigger setTriggerTimeout [0, 0, 0, true];
-	_trigger setTriggerArea [_radius select 0, _radius select 1, 0, false];
-	_trigger setTriggerActivation ["ANY", "PRESENT", true];
-	_trigger setTriggerStatements [
-		"this && vehicle player in thisList", // && count thisList > 0
-		format["_actionId = [vehicle player,thisTrigger, %1] call TM_fnc_addResourceAction; thisTrigger setVariable['actionId', _actionId]",  _actionFncParams],
-		"[thisTrigger getVariable '#firstVehicle', (thisTrigger getVariable 'actionId')] call BIS_fnc_holdActionRemove" 
-	];
+	//if (isServer) then {
+		private _trigger = createTrigger ["EmptyDetector", getPos _building, false];	
+		_trigger setTriggerTimeout [0, 0, 0, true];
+		_trigger setTriggerArea [_radius select 0, _radius select 1, 0, false];
+		_trigger setTriggerActivation ["ANY", "PRESENT", true];
+		_trigger setTriggerStatements [
+			"this && vehicle player in thisList", // && count thisList > 0
+			format["_actionId = [vehicle player,thisTrigger, %1] call TM_fnc_addResourceAction; thisTrigger setVariable['actionId', _actionId]",  _actionFncParams],
+			"[thisTrigger getVariable '#firstVehicle', (thisTrigger getVariable 'actionId')] call BIS_fnc_holdActionRemove" 
+		];
+
+		_trigger setVariable ["#building", _building];
+		_building setVariable["#trigger", _trigger];
+
+		["FER trigger build %1", _trigger] call bis_fnc_logFormat;
+	
+	//};
+
+	_building addEventHandler ["Killed",{
+			_trigger = (_this select 0) getVariable "#trigger";
+			[_trigger getVariable '#firstVehicle', (_trigger getVariable 'actionId')] call BIS_fnc_holdActionRemove;
+			deleteVehicle _trigger;
+	}];
+	
+	
 };
 
 _this call _main;
